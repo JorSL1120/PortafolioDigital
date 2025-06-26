@@ -1,5 +1,6 @@
 body {
-  background-color: #121212;
+  /*background-color: #121212;*/
+  background: linear-gradient(45deg, #000000, #18002e);
   color: #e0e0e0;
   font-family: 'Manrope', sans-serif;
   scroll-behavior: smooth;

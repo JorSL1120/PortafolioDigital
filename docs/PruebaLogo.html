@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prueba de logo con distintos fondos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .logo-container {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .logo-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .logo-container img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .background-label {
+      text-align: center;
+      margin-top: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <div class="logo-container" style="background-color: white;">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo blanco" />
+    </div>
+    <div class="background-label">Fondo Blanco</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background-color: black;">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo negro" />
+    </div>
+    <div class="background-label">Fondo Negro</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background: linear-gradient(45deg, #6a11cb, #2575fc);">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo gradiente" />
+    </div>
+    <div class="background-label">Fondo Gradiente</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background-color: #f5a623;">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo naranja" />
+    </div>
+    <div class="background-label">Fondo Naranja</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background-color: #2ecc71;">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo verde" />
+    </div>
+    <div class="background-label">Fondo Verde</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background-color: #cc2e2e;">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo verde" />
+    </div>
+    <div class="background-label">Fondo Verde</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background-color: #ac2ecc;">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo verde" />
+    </div>
+    <div class="background-label">Fondo Verde</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background-color: #fc1ce9;">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo verde" />
+    </div>
+    <div class="background-label">Fondo Verde</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background: linear-gradient(45deg, #46cb11, #f8fc25);">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo gradiente" />
+    </div>
+    <div class="background-label">Fondo Gradiente</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background: linear-gradient(45deg, #000000, #021f52);">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo gradiente" />
+    </div>
+    <div class="background-label">Fondo Gradiente</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background: linear-gradient(45deg, #000000, #ffffff);">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo gradiente" />
+    </div>
+    <div class="background-label">Fondo Gradiente</div>
+  </div>
+
+  <div>
+    <div class="logo-container" style="background: linear-gradient(45deg, #2a0057, #c37bfd);">
+      <img src="./IMGS/WildShockStudio.png" alt="Logo gradiente" />
+    </div>
+    <div class="background-label">Fondo Gradiente</div>
+  </div>
+</body>
+</html>
