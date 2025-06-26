@@ -1,0 +1,143 @@
+/* Tipografía gamer */
+body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: 'Orbitron', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* HUD Navbar */
+.hud-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 1050;
+  background-color: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid #5c5cff33;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #5c5cff55;
+}
+
+.navbar-brand span {
+  font-weight: bold;
+  color: #5c5cff;
+  text-shadow: 0 0 6px #5c5cff88;
+}
+
+.navbar-nav .nav-link {
+  color: #c9d1d9;
+  font-size: 1.2rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+/* Logo */
+.logo-wild {
+  height: 40px;
+}
+
+/* Header hero */
+.header-hero {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #0d1117 0%, #1a1f2b 100%);
+  color: white;
+  text-align: center;
+  padding-top: 150px;
+}
+
+.neon-text {
+  color: #5c5cff;
+  text-shadow: 0 0 5px #5c5cff, 0 0 10px #5c5cff, 0 0 20px #5c5cff99;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #5c5cff;
+  padding-left: 1rem;
+}
+
+/* Tarjetas de proyecto */
+.project-card {
+  background-color: #111827;
+  border: 1px solid #5c5cff55;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #c9d1d9;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #5c5cffaa;
+}
+
+.project-card .card-title {
+  color: #5c5cff;
+}
+
+.project-card .btn {
+  border-color: #5c5cff;
+  color: #5c5cff;
+}
+
+.project-card .btn:hover {
+  background-color: #5c5cff;
+  color: black;
+}
+
+/* Listas de habilidades */
+.list-group-item {
+  background-color: #0f121a;
+  color: #c9d1d9;
+  border: 1px solid #5c5cff33;
+}
+
+/* Footer */
+.footer {
+  background-color: #000000;
+  padding: 2rem 0;
+  border-top: 1px solid #5c5cff33;
+}
+
+.footer strong {
+  color: #5c5cff;
+}
+
+.footer img.logo-wild {
+  height: 30px;
+}
+
+/* Responsivo navbar fix */
+body {
+  padding-top: 100px;
+}
+
+@media (max-width: 991px) {
+  .hud-nav {
+    top: 0;
+    width: 100%;
+    border-radius: 0;
+    left: 0;
+    transform: none;
+  }
+
+  body {
+    padding-top: 70px;
+  }
+}
+
+@keyframes flash {
+  0% { opacity: 0; text-shadow: 0 0 0 transparent; }
+  50% { opacity: 1; text-shadow: 0 0 10px #5c5cff, 0 0 20px #5c5cffaa; }
+  100% { opacity: 1; text-shadow: 0 0 10px #5c5cff, 0 0 20px #5c5cffaa; }
+}
+
+.flash-neon {
+  animation: flash 1s ease-in-out;
+}
