@@ -1,12 +1,12 @@
-/* Tipografía gamer */
 body {
-  background-color: #0d1117;
-  color: #c9d1d9;
-  font-family: 'Orbitron', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Manrope', sans-serif;
   scroll-behavior: smooth;
+  padding-top: 100px;
 }
 
-/* HUD Navbar */
+/* NAVBAR */
 .hud-nav {
   position: fixed;
   top: 20px;
@@ -14,110 +14,115 @@ body {
   transform: translateX(-50%);
   width: 90%;
   z-index: 1050;
-  background-color: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid #5c5cff33;
+  background-color: rgba(18, 18, 18, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid #2c2c2c;
   border-radius: 12px;
-  box-shadow: 0 0 15px #5c5cff55;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .navbar-brand span {
-  font-weight: bold;
-  color: #5c5cff;
-  text-shadow: 0 0 6px #5c5cff88;
+  font-weight: 600;
+  color: #aee2ff;
 }
 
 .navbar-nav .nav-link {
-  color: #c9d1d9;
-  font-size: 1.2rem;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #00ffff;
-  text-shadow: 0 0 5px #00ffff;
+  color: #aee2ff;
 }
 
-/* Logo */
 .logo-wild {
   height: 40px;
 }
 
-/* Header hero */
+/* HEADER */
 .header-hero {
   min-height: 100vh;
-  background: linear-gradient(145deg, #0d1117 0%, #1a1f2b 100%);
-  color: white;
-  text-align: center;
+  background-color: #121212;
   padding-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 
-.neon-text {
-  color: #5c5cff;
-  text-shadow: 0 0 5px #5c5cff, 0 0 10px #5c5cff, 0 0 20px #5c5cff99;
+.perfil-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #aee2ff;
+  box-shadow: 0 0 10px rgba(174, 226, 255, 0.3);
 }
 
+/* SECCIONES */
 .section-title {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  border-left: 4px solid #5c5cff;
+  border-left: 4px solid #aee2ff;
   padding-left: 1rem;
+  font-weight: 700;
 }
 
-/* Tarjetas de proyecto */
+/* PROYECTOS */
 .project-card {
-  background-color: #111827;
-  border: 1px solid #5c5cff55;
+  background-color: #1e1e1e;
+  border: 1px solid #2c2c2c;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #c9d1d9;
+  color: #e0e0e0;
 }
 
 .project-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px #5c5cffaa;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(174, 226, 255, 0.15);
 }
 
 .project-card .card-title {
-  color: #5c5cff;
+  color: #aee2ff;
+  font-weight: 600;
 }
 
 .project-card .btn {
-  border-color: #5c5cff;
-  color: #5c5cff;
+  border-color: #aee2ff;
+  color: #aee2ff;
+  transition: all 0.3s ease;
 }
 
 .project-card .btn:hover {
-  background-color: #5c5cff;
-  color: black;
+  background-color: #aee2ff;
+  color: #121212;
 }
 
-/* Listas de habilidades */
+/* HABILIDADES */
 .list-group-item {
-  background-color: #0f121a;
-  color: #c9d1d9;
-  border: 1px solid #5c5cff33;
+  background-color: #181818;
+  color: #e0e0e0;
+  border: 1px solid #2c2c2c;
 }
 
-/* Footer */
+/* FOOTER */
 .footer {
   background-color: #000000;
   padding: 2rem 0;
-  border-top: 1px solid #5c5cff33;
+  border-top: 1px solid #2c2c2c;
 }
 
 .footer strong {
-  color: #5c5cff;
+  color: #aee2ff;
 }
 
 .footer img.logo-wild {
   height: 30px;
 }
 
-/* Responsivo navbar fix */
-body {
-  padding-top: 100px;
-}
-
+/* RESPONSIVE */
 @media (max-width: 991px) {
   .hud-nav {
     top: 0;
@@ -130,14 +135,13 @@ body {
   body {
     padding-top: 70px;
   }
-}
 
-@keyframes flash {
-  0% { opacity: 0; text-shadow: 0 0 0 transparent; }
-  50% { opacity: 1; text-shadow: 0 0 10px #5c5cff, 0 0 20px #5c5cffaa; }
-  100% { opacity: 1; text-shadow: 0 0 10px #5c5cff, 0 0 20px #5c5cffaa; }
-}
+  .header-hero {
+    padding-top: 120px;
+    text-align: center;
+  }
 
-.flash-neon {
-  animation: flash 1s ease-in-out;
+  .perfil-img {
+    margin-bottom: 1rem;
+  }
 }

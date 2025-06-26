@@ -6,29 +6,27 @@
     <title>Wild Shock Studio | Portafolio</title>
 
     <!-- Bootstrap 5.3.7 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Google Font: Orbitron -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Font: Manrope -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="./style.css">
 
-    <!-- JS -->
+    <!-- AOS animaciones -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   </head>
 
-
   <body>
-
-    <!-- NAVBAR GAMER -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg hud-nav">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="logo.png" class="logo-wild me-2" alt="Logo">
+          <img src="./IMGS/WildShockStudio.png" class="logo-wild me-2" alt="Logo">
           <span>Wild Shock Studio</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -46,11 +44,14 @@
       </div>
     </nav>
 
-    <!-- HEADER CON PRESENTACIÓN -->
-    <header class="header-hero text-center d-flex align-items-center">
-      <div class="container">
-        <h1 class="display-4 neon-text">Hola, soy Jorge Salas</h1>
-        <p class="lead">Desarrollador de videojuegos y experiencias digitales<br>con el sello de <strong>Wild Shock Studio</strong>.</p>
+    <!-- HEADER -->
+    <header class="header-hero d-flex align-items-center justify-content-center text-center text-md-start">
+      <div class="container d-flex flex-column flex-md-row align-items-center gap-4">
+        <img src="img/jorge.jpg" alt="Foto de Jorge" class="perfil-img">
+        <div>
+          <h1 class="display-5">Hola, soy Jorge Salas</h1>
+          <p class="lead">Desarrollador de videojuegos y experiencias digitales<br>con el sello de <strong>Wild Shock Studio</strong>.</p>
+        </div>
       </div>
     </header>
 
@@ -58,12 +59,11 @@
     <main class="container py-5">
       <!-- Proyectos -->
       <section>
-        <h2 class="section-title neon-text">🚀 Proyectos</h2>
+        <h2 class="section-title">🚀 Proyectos</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <!-- Proyecto ejemplo -->
           <div class="col">
             <div class="card project-card h-100">
-              <img src="img/proyecto1.jpg" class="card-img-top" alt="Proyecto 1">
+              <img src="./IMGS/SpaceWars.png" class="card-img-top" alt="Proyecto 1">
               <div class="card-body">
                 <h5 class="card-title">Space Wars</h5>
                 <p class="card-text">Shooter arcade retro con batallas espaciales y enemigos alienígenas.</p>
@@ -73,19 +73,18 @@
               </div>
             </div>
           </div>
-          <!-- + más tarjetas -->
         </div>
       </section>
 
       <!-- Sobre mí -->
       <section class="mt-5">
-        <h2 class="section-title neon-text">🧠 Sobre mí</h2>
+        <h2 class="section-title">🧐 Sobre mí</h2>
         <p>Soy un desarrollador independiente apasionado por crear videojuegos con alma, interfaces llamativas y tecnología funcional. Me inspiro en el arte digital, la cultura gamer y el desarrollo narrativo interactivo.</p>
       </section>
 
       <!-- Habilidades -->
       <section class="mt-5">
-        <h2 class="section-title neon-text">💻 Habilidades</h2>
+        <h2 class="section-title">💻 Habilidades</h2>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Unity, Unreal Engine</li>
           <li class="list-group-item">HTML, CSS, JS, Bootstrap</li>
@@ -97,19 +96,15 @@
     <!-- FOOTER -->
     <footer class="footer text-center">
       <div class="container d-flex justify-content-center align-items-center">
-        <img src="logo.png" class="logo-wild me-2" alt="Logo">
+        <img src="./IMGS/WildShockStudio.png" class="logo-wild me-2" alt="Logo">
         <strong>Wild Shock Studio</strong>
       </div>
       <p class="mb-0 small">© 2025 Wild Shock Studio. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-
-    <!-- Tu JavaScript -->
-    <script src="./main.js"></script>
-
-    <!-- JS -->
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
