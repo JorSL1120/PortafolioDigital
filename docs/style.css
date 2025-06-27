@@ -1,6 +1,6 @@
 body {
   /*background-color: #121212;*/
-  background: linear-gradient(45deg, #000000, #230b36);
+  background: linear-gradient(45deg, #000000, #07043a, #000000);
   color: #e0e0e0;
   font-family: 'Manrope', sans-serif;
   scroll-behavior: smooth;
@@ -44,7 +44,7 @@ body {
 /* HEADER */
 .header-hero {
   min-height: 100vh;
-  background-color: #121212;
+  /*background-color: #121212;*/
   padding-top: 150px;
   display: flex;
   align-items: center;
