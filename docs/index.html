@@ -5,20 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wild Shock Studio | Portafolio</title>
 
-    <!-- Bootstrap 5.3.7 -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Google Font: Manrope -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-
-    <!-- CSS personalizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-
-    <!-- AOS animaciones -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   </head>
 
   <body>
@@ -45,21 +36,20 @@
     </nav>
 
     <!-- HEADER -->
-    <header class="header-hero d-flex align-items-center justify-content-center text-center text-md-start">
-      <div class="container d-flex flex-column flex-md-row align-items-center gap-4">
+    <header class="header-hero d-flex align-items-center justify-content-center text-center">
+      <div class="container d-flex flex-column align-items-center gap-3">
         <img src="./IMGS/Yo.JPEG" alt="Foto de Jorge" class="perfil-img">
         <div>
-          <h1 class="display-5">Hola, soy Jorge Salas</h1>
+          <h1 class="display-6">Hola, soy Jorge Salas</h1>
           <p class="lead">Desarrollador de videojuegos y páginas web.</p>
         </div>
       </div>
     </header>
 
-    <!-- MAIN -->
-    <main class="container py-5">
-      <!-- Proyectos -->
-      <section>
-        <h2 class="section-title">🚀 Proyectos</h2>
+    <!-- VIDEOJUEGOS -->
+    <section class="py-5 bg-dark-1 text-center">
+      <div class="container">
+        <h2 class="section-title">Videojuegos</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           <div class="col">
             <a href="https://wild-shock-studio.itch.io/space-wars" target="_blank" class="text-decoration-none">
@@ -68,9 +58,6 @@
                 <div class="card-body">
                   <h5 class="card-title">Space Wars</h5>
                   <p class="card-text">Shooter arcade retro con batallas espaciales y enemigos alienígenas.</p>
-                </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
                 </div>
               </div>
             </a>
@@ -83,9 +70,6 @@
                   <h5 class="card-title">Cosmic X-Cape</h5>
                   <p class="card-text">Survival espacial en planetas desconocidos llenos de secretos.</p>
                 </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
-                </div>
               </div>
             </a>
           </div>
@@ -97,14 +81,9 @@
                   <h5 class="card-title">Tank Attack</h5>
                   <p class="card-text">Shooter arcade de tanques: precisión, velocidad y puro caos.</p>
                 </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
-                </div>
               </div>
             </a>
           </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
           <div class="col">
             <a href="https://wild-shock-studio.itch.io/rey-del-arco" target="_blank" class="text-decoration-none">
               <div class="card project-card h-100">
@@ -113,44 +92,101 @@
                   <h5 class="card-title">Rey del Arco</h5>
                   <p class="card-text">Eres el portero. El delantero dispara al azar. ¿Podrás detenerlo?</p>
                 </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEB -->
+    <section class="py-5 bg-dark-2 text-center">
+      <div class="container">
+        <h2 class="section-title">Páginas Web</h2>
+        <p class="mb-4">Algunos sitios desarrollados recientemente.</p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <a href="https://tu-pagina1.com" target="_blank" class="text-decoration-none">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Mi Página Web 1</h5>
+                  <p class="card-text">Sitio web desarrollado con HTML, CSS y JS moderno.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="https://tu-pagina2.com" target="_blank" class="text-decoration-none">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Mi Página Web 2</h5>
+                  <p class="card-text">Diseño responsive con enfoque UX/UI.</p>
                 </div>
               </div>
             </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Sobre mí -->
-      <section class="mt-5">
-        <h2 class="section-title">🧐 Sobre mí</h2>
-        <p>Soy un desarrollador independiente apasionado por crear videojuegos con alma, interfaces llamativas y tecnología funcional. Me inspiro en el arte digital, la cultura gamer y el desarrollo narrativo interactivo.</p>
-      </section>
+    <!-- ARDUINO -->
+    <section class="py-5 bg-dark-1 text-center">
+      <div class="container">
+        <h2 class="section-title">Proyectos Arduino</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Sistema de Riego Automático</h5>
+                <p class="card-text">Control de humedad en plantas con sensores y bomba de agua automática.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Alarma con Sensor de Movimiento</h5>
+                <p class="card-text">Sistema de seguridad con PIR y buzzer activado por presencia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- Habilidades -->
-      <section class="mt-5">
-        <h2 class="section-title">💻 Habilidades</h2>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Unity, Unreal Engine</li>
-          <li class="list-group-item">HTML, CSS, JS, Bootstrap</li>
-          <li class="list-group-item">Blender, Figma, Photoshop, Illustrator</li>
-        </ul>
-      </section>
-    </main>
+    <!-- SOBRE MI -->
+    <section class="py-5 bg-dark-2 text-center">
+      <div class="container">
+        <h2 class="section-title">Sobre mí</h2>
+        <div class="col-lg-8 mx-auto">
+          <p class="lead mb-0">
+            Soy un desarrollador independiente apasionado por crear videojuegos con alma, interfaces llamativas y tecnología funcional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="py-5 bg-dark-1 text-center">
+      <div class="container">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="col-lg-8 mx-auto">
+          <p class="mb-0">
+            Unity • Unreal Engine • HTML • CSS • JS • Bootstrap • Blender • Figma • Photoshop • Illustrator
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="footer text-center">
-      <div class="container d-flex justify-content-center align-items-center">
-        <img src="./IMGS/WildShockStudio.png" class="logo-wild me-2" alt="Logo">
+    <footer class="footer text-center py-4">
+      <div class="container d-flex justify-content-center align-items-center gap-2">
+        <img src="./IMGS/WildShockStudio.png" class="logo-wild" alt="Logo">
         <strong>Wild Shock Studio</strong>
       </div>
       <p class="mb-0 small">© 2025 Wild Shock Studio. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="./main.js"></script>
   </body>
 </html>
