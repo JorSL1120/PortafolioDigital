@@ -1,9 +1,11 @@
+/* Fuentes y base */
 body {
-  background-color: #0f0f11;
+  background-color: #0d0d0d;
   color: #e0e0e0;
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  padding-top: 80px;
+  font-size: 16px;
+  line-height: 1.6;
+  padding-top: 90px;
 }
 
 /* NAVBAR */
@@ -18,6 +20,7 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid #2c2c2c;
   border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-brand span {
@@ -27,7 +30,7 @@ body {
 
 .navbar-nav .nav-link {
   color: #e0e0e0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
@@ -36,14 +39,23 @@ body {
 }
 
 .logo-wild {
-  height: 36px;
+  height: 40px;
 }
 
 /* HEADER */
 .header-hero {
   min-height: 60vh;
-  padding-top: 80px;
-  padding-bottom: 40px;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.perfil-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #aee2ff;
+  box-shadow: 0 0 10px rgba(174, 226, 255, 0.3);
 }
 
 /* SECCIONES */
@@ -51,15 +63,16 @@ body {
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 2rem;
-  color: #aee2ff;
+  text-align: center;
 }
 
+/* FONDOS ALTERNADOS */
 .bg-dark-1 {
-  background-color: #111216;
+  background-color: #121212;
 }
 
 .bg-dark-2 {
-  background-color: #1b1c20;
+  background-color: #1a1a1a;
 }
 
 /* PROYECTOS */
@@ -73,34 +86,34 @@ body {
 
 .project-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 10px rgba(174, 226, 255, 0.15);
+  box-shadow: 0 0 10px rgba(174, 226, 255, 0.2);
 }
 
 .project-card .card-title {
   color: #aee2ff;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
-.project-card img {
-  width: 100%;
-  height: auto;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.project-card .card-text {
+  font-size: 1rem;
 }
 
-/* PERFIL */
-.perfil-img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #aee2ff;
-  box-shadow: 0 0 8px rgba(174, 226, 255, 0.3);
+.project-card .btn {
+  border-color: #aee2ff;
+  color: #aee2ff;
+  transition: all 0.3s ease;
+}
+
+.project-card .btn:hover {
+  background-color: #aee2ff;
+  color: #121212;
 }
 
 /* FOOTER */
 .footer {
   background-color: #000000;
+  padding: 2rem 0;
   border-top: 1px solid #2c2c2c;
 }
 
@@ -109,7 +122,7 @@ body {
 }
 
 .footer img.logo-wild {
-  height: 28px;
+  height: 30px;
 }
 
 /* RESPONSIVE */
@@ -128,10 +141,13 @@ body {
 
   .header-hero {
     padding-top: 100px;
-    padding-bottom: 40px;
   }
 
   .perfil-img {
     margin-bottom: 1rem;
+  }
+
+  .section-title {
+    text-align: center;
   }
 }

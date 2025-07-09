@@ -1,192 +1,206 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Wild Shock Studio | Portafolio</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wild Shock Studio | Portafolio</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-  </head>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg hud-nav">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="./IMGS/WildShockStudio.png" class="logo-wild me-2" alt="Logo">
-          <span>Wild Shock Studio</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/wildshockstudio/" target="_blank"><i class="bi bi-instagram"></i></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com/@wildshockstudio?lang=es-419" target="_blank"><i class="bi bi-tiktok"></i></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@WildShockStudio" target="_blank"><i class="bi bi-youtube"></i></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://itch.io/profile/wild-shock-studio" target="_blank">Itch.io</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://x.com/WildShockStudio" target="_blank"><i class="bi bi-twitter-x"></i>X</a></li>
-          </ul>
-        </div>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg hud-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="./IMGS/WildShockStudio.png" class="logo-wild me-2" alt="Logo">
+        <span>Wild Shock Studio</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/wildshockstudio/" target="_blank"><i class="bi bi-instagram"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com/@wildshockstudio" target="_blank"><i class="bi bi-tiktok"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@WildShockStudio" target="_blank"><i class="bi bi-youtube"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://itch.io/profile/wild-shock-studio" target="_blank">Itch.io</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://x.com/WildShockStudio" target="_blank"><i class="bi bi-twitter-x"></i>X</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- HEADER -->
-    <header class="header-hero d-flex align-items-center justify-content-center text-center">
-      <div class="container d-flex flex-column align-items-center gap-3">
-        <img src="./IMGS/Yo.JPEG" alt="Foto de Jorge" class="perfil-img">
-        <div>
-          <h1 class="display-6">Hola, soy Jorge Salas</h1>
-          <p class="lead">Desarrollador de videojuegos y páginas web.</p>
-        </div>
+  <!-- HEADER -->
+  <header class="header-hero d-flex align-items-center justify-content-center text-center">
+    <div class="container d-flex flex-column flex-md-row align-items-center gap-4 justify-content-center text-center">
+      <img src="./IMGS/Yo.JPEG" alt="Foto de Jorge" class="perfil-img">
+      <div>
+        <h1 class="display-5">Hola, soy Jorge Salas</h1>
+        <p>Desarrollador de videojuegos y páginas web.</p>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- VIDEOJUEGOS -->
-    <section class="py-5 bg-dark-1 text-center">
-      <div class="container">
-        <h2 class="section-title">Videojuegos</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/space-wars" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/SpaceWars.png" alt="Space Wars">
-                <div class="card-body">
-                  <h5 class="card-title">Space Wars</h5>
-                  <p class="card-text">Shooter arcade retro con batallas espaciales y enemigos alienígenas.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/cosmic-x-cape" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/CosmicX-Cape.png" alt="Cosmic X-Cape">
-                <div class="card-body">
-                  <h5 class="card-title">Cosmic X-Cape</h5>
-                  <p class="card-text">Survival espacial en planetas desconocidos llenos de secretos.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/tank-attack" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/TankAttack.png" alt="Tank Attack">
-                <div class="card-body">
-                  <h5 class="card-title">Tank Attack</h5>
-                  <p class="card-text">Shooter arcade de tanques: precisión, velocidad y puro caos.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/rey-del-arco" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/ReyDelArco.png" alt="Rey del Arco">
-                <div class="card-body">
-                  <h5 class="card-title">Rey del Arco</h5>
-                  <p class="card-text">Eres el portero. El delantero dispara al azar. ¿Podrás detenerlo?</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WEB -->
-    <section class="py-5 bg-dark-2 text-center">
-      <div class="container">
-        <h2 class="section-title">Páginas Web</h2>
-        <p class="mb-4">Algunos sitios desarrollados recientemente.</p>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
-            <a href="https://tu-pagina1.com" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">Mi Página Web 1</h5>
-                  <p class="card-text">Sitio web desarrollado con HTML, CSS y JS moderno.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://tu-pagina2.com" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">Mi Página Web 2</h5>
-                  <p class="card-text">Diseño responsive con enfoque UX/UI.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ARDUINO -->
-    <section class="py-5 bg-dark-1 text-center">
-      <div class="container">
-        <h2 class="section-title">Proyectos Arduino</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
+  <!-- SECCIÓN: Videojuegos -->
+  <section class="py-5 bg-dark-1 text-center">
+    <div class="container">
+      <h2 class="section-title">Videojuegos</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+          <a href="https://wild-shock-studio.itch.io/space-wars" target="_blank" class="text-decoration-none">
             <div class="card project-card h-100">
+              <img src="./IMGS/SpaceWars.png" alt="Space Wars">
               <div class="card-body">
-                <h5 class="card-title">Sistema de Riego Automático</h5>
-                <p class="card-text">Control de humedad en plantas con sensores y bomba de agua automática.</p>
+                <h5 class="card-title">Space Wars</h5>
+                <p class="card-text">Shooter arcade retro con batallas espaciales y enemigos alienígenas.</p>
+              </div>
+              <div class="card-footer text-end">
+                <span class="btn btn-outline-light btn-sm">Pruébalo</span>
               </div>
             </div>
-          </div>
-          <div class="col">
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://wild-shock-studio.itch.io/cosmic-x-cape" target="_blank" class="text-decoration-none">
+            <div class="card project-card h-100">
+              <img src="./IMGS/CosmicX-Cape.png" alt="Cosmic X-Cape">
+              <div class="card-body">
+                <h5 class="card-title">Cosmic X-Cape</h5>
+                <p class="card-text">Survival espacial en planetas desconocidos llenos de secretos.</p>
+              </div>
+              <div class="card-footer text-end">
+                <span class="btn btn-outline-light btn-sm">Pruébalo</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://wild-shock-studio.itch.io/tank-attack" target="_blank" class="text-decoration-none">
+            <div class="card project-card h-100">
+              <img src="./IMGS/TankAttack.png" alt="Tank Attack">
+              <div class="card-body">
+                <h5 class="card-title">Tank Attack</h5>
+                <p class="card-text">Shooter arcade de tanques: precisión, velocidad y puro caos.</p>
+              </div>
+              <div class="card-footer text-end">
+                <span class="btn btn-outline-light btn-sm">Pruébalo</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://wild-shock-studio.itch.io/rey-del-arco" target="_blank" class="text-decoration-none">
+            <div class="card project-card h-100">
+              <img src="./IMGS/ReyDelArco.png" alt="Rey del Arco">
+              <div class="card-body">
+                <h5 class="card-title">Rey del Arco</h5>
+                <p class="card-text">Eres el portero. El delantero dispara al azar. ¿Podrás detenerlo?</p>
+              </div>
+              <div class="card-footer text-end">
+                <span class="btn btn-outline-light btn-sm">Pruébalo</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Páginas Web -->
+  <section class="py-5 bg-dark-2 text-center">
+    <div class="container">
+      <h2 class="section-title">Páginas Web</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <a href="https://tu-pagina1.com" target="_blank" class="text-decoration-none">
             <div class="card project-card h-100">
               <div class="card-body">
-                <h5 class="card-title">Alarma con Sensor de Movimiento</h5>
-                <p class="card-text">Sistema de seguridad con PIR y buzzer activado por presencia.</p>
+                <h5 class="card-title">Mi Página Web 1</h5>
+                <p class="card-text">Sitio web desarrollado con HTML, CSS y JS moderno.</p>
               </div>
+            </div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://tu-pagina2.com" target="_blank" class="text-decoration-none">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Mi Página Web 2</h5>
+                <p class="card-text">Diseño responsive con enfoque UX/UI.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos Arduino -->
+  <section class="py-5 bg-dark-1 text-center">
+    <div class="container">
+      <h2 class="section-title">Proyectos Arduino</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card project-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Sistema de Riego Automático</h5>
+              <p class="card-text">Control de humedad con sensores y bomba de agua automática.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card project-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Alarma con Sensor de Movimiento</h5>
+              <p class="card-text">Sistema de seguridad con PIR y buzzer activado por presencia.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SOBRE MI -->
-    <section class="py-5 bg-dark-2 text-center">
-      <div class="container">
-        <h2 class="section-title">Sobre mí</h2>
-        <div class="col-lg-8 mx-auto">
-          <p class="lead mb-0">
-            Soy un desarrollador independiente apasionado por crear videojuegos con alma, interfaces llamativas y tecnología funcional.
-          </p>
-        </div>
+  <!-- Sobre mí -->
+  <section class="py-5 bg-dark-2 text-center">
+    <div class="container">
+      <h2 class="section-title">Sobre mí</h2>
+      <div class="col-lg-8 mx-auto">
+        <p>
+          Soy un desarrollador independiente apasionado por crear videojuegos con alma, interfaces llamativas y tecnología funcional. Me inspiro en el arte digital, la cultura gamer y el desarrollo narrativo interactivo.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- HABILIDADES -->
-    <section class="py-5 bg-dark-1 text-center">
-      <div class="container">
-        <h2 class="section-title">Habilidades</h2>
-        <div class="col-lg-8 mx-auto">
-          <p class="mb-0">
-            Unity • Unreal Engine • HTML • CSS • JS • Bootstrap • Blender • Figma • Photoshop • Illustrator
-          </p>
-        </div>
+  <!-- Habilidades -->
+  <section class="py-5 bg-dark-1 text-center">
+    <div class="container">
+      <h2 class="section-title">Habilidades</h2>
+      <div class="col-lg-8 mx-auto">
+        <p>Unity • Unreal Engine • HTML • CSS • JS • Bootstrap • Blender • Figma • Photoshop • Illustrator</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer class="footer text-center py-4">
-      <div class="container d-flex justify-content-center align-items-center gap-2">
-        <img src="./IMGS/WildShockStudio.png" class="logo-wild" alt="Logo">
-        <strong>Wild Shock Studio</strong>
-      </div>
-      <p class="mb-0 small">© 2025 Wild Shock Studio. Todos los derechos reservados.</p>
-    </footer>
+  <!-- FOOTER -->
+  <footer class="footer text-center">
+    <div class="container d-flex justify-content-center align-items-center">
+      <img src="./IMGS/WildShockStudio.png" class="logo-wild me-2" alt="Logo">
+      <strong>Wild Shock Studio</strong>
+    </div>
+    <p class="mb-0 small">© 2025 Wild Shock Studio. Todos los derechos reservados.</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
+
