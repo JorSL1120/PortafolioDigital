@@ -44,8 +44,10 @@ body {
 
 /* HEADER */
 .header-hero {
-  min-height: 60vh;
-  padding-top: 120px;
+  padding: 4rem 0; /* Espaciado vertical */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -64,6 +66,7 @@ body {
   font-weight: 600;
   margin-bottom: 2rem;
   text-align: center;
+  color: #aee2ff;
 }
 
 /* FONDOS ALTERNADOS */
