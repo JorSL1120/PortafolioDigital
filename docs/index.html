@@ -3,16 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jorge Salas | Portafolio</title>
+  <title>Jorge Salas | Web & Game Developer</title>
   <link rel="icon" href="./IMGS/Lobo.png">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Google Font: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Estilos personalizados -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,198 +18,189 @@
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="./IMGS/Lobo.png" class="logo-wild me-2" alt="Logo">
-        <span><strong>Jorge Salas</strong> | Web & Game Developer</span>
+        <span><strong class="text-white">Jorge Salas</strong> <span class="d-none d-sm-inline text-cyan">| Portfolio</span></span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list text-white fs-2"></i>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav align-items-center">
           <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/wildshockstudio/" target="_blank"><i class="bi bi-instagram"></i></a></li>
           <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com/@wildshockstudio" target="_blank"><i class="bi bi-tiktok"></i></a></li>
           <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@WildShockStudio" target="_blank"><i class="bi bi-youtube"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href="https://itch.io/profile/wild-shock-studio" target="_blank">Itch.io</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://x.com/WildShockStudio" target="_blank"><i class="bi bi-twitter-x"></i>X</a></li>
+          <li class="nav-item"><a class="nav-link text-cyan fw-bold" href="https://itch.io/profile/wild-shock-studio" target="_blank">Itch.io</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://x.com/WildShockStudio" target="_blank"><i class="bi bi-twitter-x"></i></a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- HEADER -->
-  <header class="header-hero">
-    <div class="container d-flex flex-column flex-md-row align-items-center gap-4 justify-content-center text-center">
-      <img src="./IMGS/Lobo.png" alt="Foto de Jorge" class="perfil-img">
-      <div>
-        <h1 class="display-5">Hola, soy Jorge Salas</h1>
-        <p>Web & Game Developer.</p>
+  <header class="header-hero d-flex align-items-center">
+    <div class="container text-center text-md-start">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+          <img src="./IMGS/Lobo.png" alt="Jorge Salas" class="perfil-img">
+        </div>
+        <div class="col-md-8">
+          <h4 class="text-cyan mb-1 fw-600">Web & Game Developer</h4>
+          <h1 class="display-3 fw-800 text-white">Hola, soy <span class="text-gradient">Jorge Salas</span></h1>
+          <p class="fs-4 fw-light text-light-gray">Creando experiencias digitales de alto rendimiento.</p>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Sobre mí -->
-    <section class="py-5 bg-dark-2 justify-content-center">
+    <!-- SOBRE MI -->
+    <section class="py-6 bg-deep">
       <div class="container">
-        <h2 class="section-title">Sobre mí</h2>
-        <div class="col-lg-8 mx-auto section-about">
-          <p class="lead">Soy <strong>Jorge Salas</strong>, un creador enfocado en desarrollar experiencias digitales, desde plataformas web modernas hasta videojuegos interactivos. Me gusta crear proyectos que no solo funcionen bien, sino que realmente se sientan fluidos, rápidos y profesionales.</p>
-          <p>En el área web, desarrollo desde sitios personalizados con <strong>HTML, CSS y JavaScript</strong> hasta soluciones dinámicas en <strong>WordPress</strong>. Mi prioridad es que cada página sea totalmente responsiva, esté optimizada para buscadores (<strong>SEO</strong>) y ofrezca una navegación impecable en cualquier dispositivo.</p>
-          <p>Por otro lado, en el desarrollo de videojuegos me enfoco en crear mecánicas sólidas y experiencias envolventes utilizando motores como <strong>Unity y Unreal Engine</strong>. Esta faceta me ha permitido dominar la lógica de programación compleja y el diseño de sistemas interactivos; esa misma atención al detalle y al rendimiento la traslado a mis desarrollos web. Mi objetivo es que los sitios no sean estáticos, sino experiencias dinámicas y atractivas que realmente conecten con el usuario.</p>
-          <p>También disfruto trabajar con hardware y <strong>Arduino</strong>, integrando el mundo físico con el digital. Mi enfoque es simple: entregar proyectos bien hechos, con un diseño atractivo y un rendimiento que supere las expectativas.</p>
+        <div class="row mb-5 text-center">
+          <div class="col-12">
+            <h2 class="section-title">Sobre mí</h2>
+            <p class="lead mx-auto text-white" style="max-width: 850px; line-height: 1.8;">Soy <strong>Jorge Salas</strong>, un creador enfocado en desarrollar experiencias digitales, desde plataformas web modernas hasta videojuegos interactivos. Me gusta crear proyectos que no solo funcionen bien, sino que realmente se sientan fluidos, rápidos y profesionales.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="about-card p-4 h-100">
+              <div class="icon-circle mb-3"><i class="bi bi-globe2"></i></div>
+              <h4 class="text-cyan mb-3">Web Specialist</h4>
+              <p class="text-light-gray">Desarrollo desde sitios personalizados con <strong>HTML, CSS y JavaScript</strong> hasta soluciones dinámicas en <strong>WordPress</strong>. Mi prioridad es que cada página sea totalmente responsiva, esté optimizada para buscadores (<strong>SEO</strong>) y ofrezca una navegación impecable.</p>
+            </div>
+          </div>
+            <div class="col-lg-4">
+              <div class="about-card p-4 h-100">
+                <div class="icon-circle mb-3"><i class="bi bi-unity"></i></div>
+                <h4 class="text-cyan mb-3">Game Developer</h4>
+                <p class="text-light-gray">Me enfoco en crear mecánicas sólidas y experiencias envolventes utilizando motores como <strong>Unity y Unreal Engine</strong>. Esta faceta me permite dominar la lógica de programación compleja; esa misma atención al detalle la traslado a mis desarrollos web.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="about-card p-4 h-100">
+                <div class="icon-circle mb-3"><i class="bi bi-cpu"></i></div>
+                <h4 class="text-cyan mb-3">Hardware & Logic</h4>
+                <p class="text-light-gray">También disfruto trabajar con hardware y <strong>Arduino</strong>, integrando el mundo físico con el digital. Mi enfoque es simple: entregar proyectos bien hechos, con un diseño atractivo y un rendimiento que supere las expectativas.</p>
+              </div>
+            </div>
         </div>
       </div>
     </section>
 
-    <!-- Habilidades -->
-    <section class="py-5 bg-dark-1 text-center">
-      <div class="container">
-        <h2 class="section-title mb-4">Habilidades Técnicas</h2>
-        <div class="row justify-content-center">
-          <div class="col-md-4 mb-4">
-            <h4 class="text-primary mb-3">Web Development</h4>
-            <div class="d-flex flex-wrap justify-content-center gap-2">
-              <span class="badge bg-secondary">HTML5</span>
-              <span class="badge bg-secondary">CSS3</span>
-              <span class="badge bg-secondary">JavaScript</span>
-              <span class="badge bg-secondary">Bootstrap</span>
-              <span class="badge bg-secondary">WordPress</span>
+    <!-- SKILLS -->
+    <section class="py-6">
+      <div class="container text-center">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="skill-card p-4 h-100">
+              <i class="bi bi-code-slash fs-1 text-cyan"></i>
+              <h4 class="mt-3 text-white">Web Dev</h4>
+              <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                <span class="badge-custom">HTML5</span><span class="badge-custom">CSS3</span>
+                <span class="badge-custom">JS</span><span class="badge-custom">Bootstrap</span>
+                <span class="badge-custom">WordPress</span>
+              </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <h4 class="text-primary mb-3">Game Development</h4>
-            <div class="d-flex flex-wrap justify-content-center gap-2">
-              <span class="badge bg-secondary">Unity</span>
-              <span class="badge bg-secondary">C#</span>
-              <span class="badge bg-secondary">Unreal Engine</span>
-              <span class="badge bg-secondary">Arduino</span>
-              <span class="badge bg-secondary">Blueprints</span>
+          <div class="col-md-4">
+            <div class="skill-card p-4 h-100">
+              <i class="bi bi-controller fs-1 text-cyan"></i>
+              <h4 class="mt-3 text-white">Game Dev</h4>
+              <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                <span class="badge-custom">Unity</span><span class="badge-custom">C#</span>
+                <span class="badge-custom">Unreal</span><span class="badge-custom">Arduino</span>
+                <span class="badge-custom">Blueprints</span>
+              </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <h4 class="text-primary mb-3">Design & 3D</h4>
-            <div class="d-flex flex-wrap justify-content-center gap-2">
-              <span class="badge bg-secondary">Blender</span>
-              <span class="badge bg-secondary">Photoshop</span>
-              <span class="badge bg-secondary">Illustrator</span>
+          <div class="col-md-4">
+            <div class="skill-card p-4 h-100">
+              <i class="bi bi-vector-pen fs-1 text-cyan"></i>
+              <h4 class="mt-3 text-white">Design & 3D</h4>
+              <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                <span class="badge-custom">Blender</span><span class="badge-custom">Photoshop</span>
+                <span class="badge-custom">Illustrator</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Videojuegos -->
-    <section class="py-5 bg-dark-2 text-center">
-      <div class="container">
+    <!-- WEB -->
+    <section class="py-6 bg-deep">
+      <div class="container text-center">
+        <h2 class="section-title">Desarrollo Web</h2>
+        <div class="row g-4 text-start">
+          <div class="col-md-6">
+            <a href="https://rankedgamer.com/" target="_blank" class="text-decoration-none">
+              <div class="card project-card-modern p-4 h-100">
+                <h5 class="text-cyan mb-3">Ranked Gamer</h5>
+                <p class="text-light-gray">Plataforma de contenidos especializada en videojuegos. Enfocada en <strong>optimización de carga</strong> y navegación clara.</p>
+                <div class="mt-auto pt-3"><span class="tag">SEO</span><span class="tag">Web Design</span></div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a href="https://jorsl1120.github.io/PaginaMammut/" target="_blank" class="text-decoration-none">
+              <div class="card project-card-modern p-4 h-100">
+                <h5 class="text-cyan mb-3">Mammut</h5>
+                <p class="text-light-gray">Landing page con <strong>diseño responsivo</strong>, enfocada en resaltar la identidad visual y facilitar la conversión.</p>
+                <div class="mt-auto pt-3"><span class="tag">HTML/CSS</span><span class="tag">Bootstrap</span></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEOJUEGOS -->
+    <section class="py-6">
+      <div class="container text-center">
         <h2 class="section-title">Videojuegos</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
           <div class="col">
             <a href="https://wild-shock-studio.itch.io/space-wars" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/SpaceWars.png" alt="Space Wars">
-                <div class="card-body">
-                  <h5 class="card-title">Space Wars</h5>
-                  <p class="card-text">Shooter arcade retro con batallas espaciales y enemigos alienígenas</p>
-                </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
-                </div>
-              </div>
+              <div class="game-card"><img src="./IMGS/SpaceWars.png" alt="Space Wars"><div class="game-overlay"><h6>Space Wars</h6></div></div>
             </a>
           </div>
           <div class="col">
             <a href="https://wild-shock-studio.itch.io/cosmic-x-cape" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/CosmicX-Cape.png" alt="Cosmic X-Cape">
-                <div class="card-body">
-                  <h5 class="card-title">Cosmic X-Cape</h5>
-                  <p class="card-text">Survival espacial en planetas desconocidos llenos de secretos</p>
-                </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
-                </div>
-              </div>
+              <div class="game-card"><img src="./IMGS/CosmicX-Cape.png" alt="Cosmic X-Cape"><div class="game-overlay"><h6>Cosmic X-Cape</h6></div></div>
             </a>
           </div>
           <div class="col">
             <a href="https://wild-shock-studio.itch.io/tank-attack" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/TankAttack.png" alt="Tank Attack">
-                <div class="card-body">
-                  <h5 class="card-title">Tank Attack</h5>
-                  <p class="card-text">Shooter arcade de tanques: precisión, velocidad y puro caos</p>
-                </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
-                </div>
-              </div>
+              <div class="game-card"><img src="./IMGS/TankAttack.png" alt="Tank Attack"><div class="game-overlay"><h6>Tank Attack</h6></div></div>
             </a>
           </div>
           <div class="col">
             <a href="https://wild-shock-studio.itch.io/rey-del-arco" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <img src="./IMGS/ReyDelArco.png" alt="Rey del Arco">
-                <div class="card-body">
-                  <h5 class="card-title">Rey del Arco</h5>
-                  <p class="card-text">Eres el portero. El delantero dispara al azar. ¿Podrás detenerlo?</p>
-                </div>
-                <div class="card-footer text-end">
-                  <span class="btn btn-outline-light btn-sm">Pruébalo</span>
-                </div>
-              </div>
+              <div class="game-card"><img src="./IMGS/ReyDelArco.png" alt="Rey del Arco"><div class="game-overlay"><h6>Rey del Arco</h6></div></div>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Páginas Web -->
-    <section class="py-5 bg-dark-1 text-center">
-      <div class="container">
-        <h2 class="section-title">Páginas Web</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
-            <a href="https://rankedgamer.com/" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">Ranked Gamer</h5>
-                  <p class="card-text">Web de artículos de videojuegos</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://jorsl1120.github.io/PaginaMammut/" target="_blank" class="text-decoration-none">
-              <div class="card project-card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">Mammut</h5>
-                  <p class="card-text">Web para venta de bolsas</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proyectos Arduino -->
-    <section class="py-5 bg-dark-2 text-center">
-      <div class="container">
-        <h2 class="section-title">Proyectos Arduino</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
-            <div class="card project-card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Carro seguidor de línea</h5>
-                <p class="card-text">Carro programado para seguir una línea negra pintada sobre un fondo blanco</p>
-              </div>
+    <!-- ARDUINO -->
+    <section class="py-6 bg-deep">
+      <div class="container text-center">
+        <h2 class="section-title">Hardware & Arduino</h2>
+        <div class="row g-4 text-start">
+          <div class="col-md-6">
+            <div class="hw-card p-4 h-100">
+              <h5 class="text-cyan">Control Cosmic X-Cape</h5>
+              <p class="text-light-gray">Periférico físico integrado con Unity mediante comunicación serial.</p>
+              <div class="mt-2 text-white-50 small">#Arduino #C++ #Unity</div>
             </div>
           </div>
-          <div class="col">
-            <div class="card project-card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Control de videojuego</h5>
-                <p class="card-text">Control programado para controlar el videojuego Cosmic X-Cape</p>
-              </div>
+          <div class="col-md-6">
+            <div class="hw-card p-4 h-100">
+              <h5 class="text-cyan">Vehículo Autónomo</h5>
+              <p class="text-light-gray">Seguidor de línea basado en sensores infrarrojos y lógica de control.</p>
+              <div class="mt-2 text-white-50 small">#Robótica #Lógica</div>
             </div>
           </div>
         </div>
@@ -222,15 +209,15 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer text-center">
-    <div class="container d-flex justify-content-center align-items-center">
-      <img src="./IMGS/WildShockStudio.png" class="logo-wild me-2" alt="Logo">
-      <strong>Wild Shock Studio</strong>
+  <footer class="py-5 bg-black border-top border-dark text-center">
+    <div class="container">
+      <img src="./IMGS/Lobo.png" class="logo-footer mb-3" alt="Logo">
+      <h5 class="fw-bold text-white">Jorge Salas</h5>
+      <p class="small text-white-50">© 2025 | Desarrollado con Alma y Código.</p>
     </div>
-    <p class="mb-0 small">© 2025 Wild Shock Studio. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
