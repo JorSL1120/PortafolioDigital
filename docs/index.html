@@ -5,21 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jorge Salas | Web & Game Developer</title>
   <link rel="icon" href="./IMGS/Lobo.png">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg hud-nav">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="./IMGS/Lobo.png" class="logo-wild me-2" alt="Logo">
         <span><strong class="text-white">Jorge Salas</strong> <span class="d-none d-sm-inline text-cyan">| Portfolio</span></span>
       </a>
+      
+      <div class="lang-switcher ms-auto me-3">
+        <button id="btn-es" class="btn-lang active">ES</button>
+        <span class="text-white-50">|</span>
+        <button id="btn-en" class="btn-lang">EN</button>
+      </div>
+
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <i class="bi bi-list text-white fs-2"></i>
       </button>
@@ -35,7 +39,6 @@
     </div>
   </nav>
 
-  <!-- HEADER -->
   <header class="header-hero d-flex align-items-center">
     <div class="container text-center text-md-start">
       <div class="row align-items-center">
@@ -43,54 +46,56 @@
           <img src="./IMGS/Lobo.png" alt="Jorge Salas" class="perfil-img">
         </div>
         <div class="col-md-8">
-          <h4 class="text-cyan mb-1 fw-600">Web & Game Developer</h4>
-          <h1 class="display-3 fw-800 text-white">Hola, soy <span class="text-gradient">Jorge Salas</span></h1>
-          <p class="fs-4 fw-light text-light-gray">Creando experiencias digitales de alto rendimiento.</p>
+          <h4 class="text-cyan mb-1 fw-600 lang-text" data-es="Web & Game Developer" data-en="Web & Game Developer">Web & Game Developer</h4>
+          <h1 class="display-3 fw-800 text-white lang-text" data-es="Hola, soy <span class='text-gradient'>Jorge Salas</span>" data-en="Hi, I'm <span class='text-gradient'>Jorge Salas</span>">Hola, soy <span class="text-gradient">Jorge Salas</span></h1>
+          <p class="fs-4 fw-light text-light-gray lang-text" data-es="Creando experiencias digitales de alto rendimiento." data-en="Creating high-performance digital experiences.">Creando experiencias digitales de alto rendimiento.</p>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- SOBRE MI -->
     <section class="py-6 bg-deep">
       <div class="container">
         <div class="row mb-5 text-center">
           <div class="col-12">
-            <h2 class="section-title">Sobre mí</h2>
-            <p class="lead mx-auto text-white" style="max-width: 850px; line-height: 1.8;">Soy <strong>Jorge Salas</strong>, un creador enfocado en desarrollar experiencias digitales, desde plataformas web modernas hasta videojuegos interactivos. Me gusta crear proyectos que no solo funcionen bien, sino que realmente se sientan fluidos, rápidos y profesionales.</p>
+            <h2 class="section-title lang-text" data-es="Sobre mí" data-en="About Me">Sobre mí</h2>
+            <p class="lead mx-auto text-white lang-text" style="max-width: 850px; line-height: 1.8;" 
+               data-es="Soy Jorge Salas, un creador enfocado en desarrollar experiencias digitales, desde plataformas web modernas hasta videojuegos interactivos. Me gusta crear proyectos que no solo funcionen bien, sino que realmente se sientan fluidos, rápidos y profesionales." 
+               data-en="I'm Jorge Salas, a creator focused on developing digital experiences, from modern web platforms to interactive video games. I like to create projects that not only work well, but really feel fluid, fast, and professional.">
+               Soy <strong>Jorge Salas</strong>, un creador enfocado en desarrollar experiencias digitales, desde plataformas web modernas hasta videojuegos interactivos. Me gusta crear proyectos que no solo funcionen bien, sino que realmente se sientan fluidos, rápidos y profesionales.
+            </p>
           </div>
         </div>
         <div class="row g-4">
           <div class="col-lg-4">
             <div class="about-card p-4 h-100">
               <div class="icon-circle mb-3"><i class="bi bi-globe2"></i></div>
-              <h4 class="text-cyan mb-3">Web Specialist</h4>
-              <p class="text-light-gray">Desarrollo desde sitios personalizados con <strong>HTML, CSS y JavaScript</strong> hasta soluciones dinámicas en <strong>WordPress</strong>. Mi prioridad es que cada página sea totalmente responsiva, esté optimizada para buscadores (<strong>SEO</strong>) y ofrezca una navegación impecable.</p>
+              <h4 class="text-cyan mb-3 lang-text" data-es="Especialista Web" data-en="Web Specialist">Web Specialist</h4>
+              <p class="text-light-gray lang-text" data-es="Desarrollo desde sitios personalizados con HTML, CSS y JavaScript hasta soluciones dinámicas en WordPress. Mi prioridad es el SEO y la navegación impecable." data-en="I develop everything from custom sites with HTML, CSS, and JavaScript to dynamic solutions in WordPress. My priority is SEO and seamless navigation.">Desarrollo desde sitios personalizados con <strong>HTML, CSS y JavaScript</strong> hasta soluciones dinámicas en <strong>WordPress</strong>. Mi prioridad es que cada página sea totalmente responsiva, esté optimizada para buscadores (<strong>SEO</strong>) y ofrezca una navegación impecable.</p>
             </div>
           </div>
-            <div class="col-lg-4">
-              <div class="about-card p-4 h-100">
-                <div class="icon-circle mb-3"><i class="bi bi-unity"></i></div>
-                <h4 class="text-cyan mb-3">Game Developer</h4>
-                <p class="text-light-gray">Me enfoco en crear mecánicas sólidas y experiencias envolventes utilizando motores como <strong>Unity y Unreal Engine</strong>. Esta faceta me permite dominar la lógica de programación compleja; esa misma atención al detalle la traslado a mis desarrollos web.</p>
-              </div>
+          <div class="col-lg-4">
+            <div class="about-card p-4 h-100">
+              <div class="icon-circle mb-3"><i class="bi bi-unity"></i></div>
+              <h4 class="text-cyan mb-3 lang-text" data-es="Desarrollador de Juegos" data-en="Game Developer">Game Developer</h4>
+              <p class="text-light-gray lang-text" data-es="Me enfoco en crear mecánicas sólidas y experiencias envolventes utilizando motores como Unity y Unreal Engine." data-en="I focus on creating solid mechanics and immersive experiences using engines like Unity and Unreal Engine.">Me enfoco en crear mecánicas sólidas y experiencias envolventes utilizando motores como <strong>Unity y Unreal Engine</strong>. Esta faceta me permite dominar la lógica de programación compleja; esa misma atención al detalle la traslado a mis desarrollos web.</p>
             </div>
-            <div class="col-lg-4">
-              <div class="about-card p-4 h-100">
-                <div class="icon-circle mb-3"><i class="bi bi-cpu"></i></div>
-                <h4 class="text-cyan mb-3">Hardware & Logic</h4>
-                <p class="text-light-gray">También disfruto trabajar con hardware y <strong>Arduino</strong>, integrando el mundo físico con el digital. Mi enfoque es simple: entregar proyectos bien hechos, con un diseño atractivo y un rendimiento que supere las expectativas.</p>
-              </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="about-card p-4 h-100">
+              <div class="icon-circle mb-3"><i class="bi bi-cpu"></i></div>
+              <h4 class="text-cyan mb-3 lang-text" data-es="Hardware y Lógica" data-en="Hardware & Logic">Hardware & Logic</h4>
+              <p class="text-light-gray lang-text" data-es="También disfruto trabajar con hardware y Arduino, integrando el mundo físico con el digital." data-en="I also enjoy working with hardware and Arduino, integrating the physical world with the digital.">También disfruto trabajar con hardware y <strong>Arduino</strong>, integrando el mundo físico con el digital. Mi enfoque es simple: entregar proyectos bien hechos, con un diseño atractivo y un rendimiento que supere las expectativas.</p>
             </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section class="py-6">
       <div class="container text-center">
-        <h2 class="section-title">Habilidades Técnicas</h2>
+        <h2 class="section-title lang-text" data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
         <div class="row g-4">
           <div class="col-md-4">
             <div class="skill-card p-4 h-100">
@@ -117,7 +122,7 @@
           <div class="col-md-4">
             <div class="skill-card p-4 h-100">
               <i class="bi bi-vector-pen fs-1 text-cyan"></i>
-              <h4 class="mt-3 text-white">Design & 3D</h4>
+              <h4 class="mt-3 text-white lang-text" data-es="Diseño y 3D" data-en="Design & 3D">Design & 3D</h4>
               <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
                 <span class="badge-custom">Blender</span><span class="badge-custom">Photoshop</span>
                 <span class="badge-custom">Illustrator</span>
@@ -128,16 +133,15 @@
       </div>
     </section>
 
-    <!-- WEB -->
     <section class="py-6 bg-deep">
       <div class="container text-center">
-        <h2 class="section-title">Desarrollo Web</h2>
+        <h2 class="section-title lang-text" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</h2>
         <div class="row g-4 text-start">
           <div class="col-md-6">
             <a href="https://rankedgamer.com/" target="_blank" class="text-decoration-none">
               <div class="card project-card-modern p-4 h-100">
                 <h5 class="text-cyan mb-3">Ranked Gamer</h5>
-                <p class="text-light-gray">Plataforma de contenidos especializada en videojuegos. Enfocada en <strong>optimización de carga</strong> y navegación clara.</p>
+                <p class="text-light-gray lang-text" data-es="Plataforma de contenidos especializada en videojuegos. Enfocada en optimización de carga." data-en="Gaming content platform. Focused on load optimization and clear navigation.">Plataforma de contenidos especializada en videojuegos. Enfocada en <strong>optimización de carga</strong> y navegación clara.</p>
                 <div class="mt-auto pt-3"><span class="tag">SEO</span><span class="tag">Web Design</span></div>
               </div>
             </a>
@@ -146,7 +150,7 @@
             <a href="https://jorsl1120.github.io/PaginaMammut/" target="_blank" class="text-decoration-none">
               <div class="card project-card-modern p-4 h-100">
                 <h5 class="text-cyan mb-3">Mammut</h5>
-                <p class="text-light-gray">Landing page con <strong>diseño responsivo</strong>, enfocada en resaltar la identidad visual y facilitar la conversión.</p>
+                <p class="text-light-gray lang-text" data-es="Landing page con diseño responsivo, enfocada en resaltar la identidad visual." data-en="Landing page with responsive design, focused on highlighting visual identity.">Landing page con <strong>diseño responsivo</strong>, enfocada en resaltar la identidad visual y facilitar la conversión.</p>
                 <div class="mt-auto pt-3"><span class="tag">HTML/CSS</span><span class="tag">Bootstrap</span></div>
               </div>
             </a>
@@ -155,10 +159,9 @@
       </div>
     </section>
 
-    <!-- VIDEOJUEGOS -->
     <section class="py-6">
       <div class="container text-center">
-        <h2 class="section-title">Videojuegos</h2>
+        <h2 class="section-title lang-text" data-es="Videojuegos" data-en="Video Games">Videojuegos</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
           <div class="col">
             <a href="https://wild-shock-studio.itch.io/space-wars" target="_blank" class="text-decoration-none">
@@ -184,7 +187,6 @@
       </div>
     </section>
 
-    <!-- ARDUINO -->
     <section class="py-6 bg-deep">
       <div class="container text-center">
         <h2 class="section-title">Hardware & Arduino</h2>
@@ -192,14 +194,14 @@
           <div class="col-md-6">
             <div class="hw-card p-4 h-100">
               <h5 class="text-cyan">Control Cosmic X-Cape</h5>
-              <p class="text-light-gray">Periférico físico integrado con Unity mediante comunicación serial.</p>
+              <p class="text-light-gray lang-text" data-es="Periférico físico integrado con Unity mediante comunicación serial." data-en="Physical peripheral integrated with Unity through serial communication.">Periférico físico integrado con Unity mediante comunicación serial.</p>
               <div class="mt-2 text-white-50 small">#Arduino #C++ #Unity</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="hw-card p-4 h-100">
-              <h5 class="text-cyan">Vehículo Autónomo</h5>
-              <p class="text-light-gray">Seguidor de línea basado en sensores infrarrojos y lógica de control.</p>
+              <h5 class="text-cyan lang-text" data-es="Vehículo Autónomo" data-en="Autonomous Vehicle">Vehículo Autónomo</h5>
+              <p class="text-light-gray lang-text" data-es="Seguidor de línea basado en sensores infrarrojos y lógica de control." data-en="Line follower based on infrared sensors and control logic.">Seguidor de línea basado en sensores infrarrojos y lógica de control.</p>
               <div class="mt-2 text-white-50 small">#Robótica #Lógica</div>
             </div>
           </div>
@@ -208,12 +210,11 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="py-5 bg-black border-top border-dark text-center">
     <div class="container">
       <img src="./IMGS/Lobo.png" class="logo-footer mb-3" alt="Logo">
       <h5 class="fw-bold text-white">Jorge Salas</h5>
-      <p class="small text-white-50">© 2025 | Desarrollado con Alma y Código.</p>
+      <p class="small text-white-50 lang-text" data-es="© 2025 | Desarrollado con Alma y Código." data-en="© 2025 | Developed with Soul and Code.">© 2025 | Desarrollado con Alma y Código.</p>
     </div>
   </footer>
 
