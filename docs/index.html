@@ -229,14 +229,18 @@
       const canvas = document.querySelector("#unity-canvas");
 
       // Inicializamos el motor gráfico en el navegador
+      // Inicializamos el motor gráfico en el navegador con descompresión en el cliente
       createUnityInstance(canvas, {
-          dataUrl: "assets/unity/hjv/Build/hjv.data",
-          frameworkUrl: "assets/unity/hjv/Build/hjv.framework.js",
-          codeUrl: "assets/unity/hjv/Build/hjv.wasm",
+          dataUrl: "assets/unity/hjv/Build/hjv.data.br", // <-- Apuntamos directo al archivo físico .br
+          frameworkUrl: "assets/unity/hjv/Build/hjv.framework.js.br", // <-- Apuntamos directo al archivo físico .br
+          codeUrl: "assets/unity/hjv/Build/hjv.wasm.br", // <-- Apuntamos directo al archivo físico .br
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
           productVersion: "1.0",
+          // 💡 ESTA ES LA LÍNEA MÁGICA:
+          // Le avisa al cargador de Unity que él mismo debe descomprimir los archivos usando WebAssembly
+          decompressorUrl: "assets/unity/hjv/Build/hjv.loader.js", 
       }).then((unityInstance) => {
           unityInst = unityInstance;
           console.log("¡Unity conectado con éxito al portafolio!");
