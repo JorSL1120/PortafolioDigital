@@ -227,17 +227,15 @@
   <script>
       let unityInst = null;
       const canvas = document.querySelector("#unity-canvas");
+      // Inicializamos el motor gráfico de forma estándar (Sin compresión de origen)
       createUnityInstance(canvas, {
-          dataUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.data.br",
-          frameworkUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.br", // <-- ¡CORREGIDO AQUÍ CON EL .js!
-          codeUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.br",
+          dataUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.data",
+          frameworkUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js",
+          codeUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
           productVersion: "1.0",
-          
-          decompressorUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js",
-          completelyDecompressOnClient: true 
       }).then((unityInstance) => {
           unityInst = unityInstance;
           console.log("¡Unity conectado con éxito al portafolio!");
