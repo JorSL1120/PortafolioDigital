@@ -229,14 +229,13 @@
       const canvas = document.querySelector("#unity-canvas");
       createUnityInstance(canvas, {
           dataUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.data.br",
-          frameworkUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.br",
+          frameworkUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.br", // <-- ¡CORREGIDO AQUÍ CON EL .js!
           codeUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.br",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
           productVersion: "1.0",
           
-          // 💡 ESTAS DOS LÍNEAS DE ABAJO SON LA SOLUCIÓN DEFINITIVA:
           decompressorUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js",
           completelyDecompressOnClient: true 
       }).then((unityInstance) => {
