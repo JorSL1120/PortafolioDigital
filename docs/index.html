@@ -223,19 +223,24 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="main.js"></script>
-  <script src="assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js"></script>
+  <script src="./assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js"></script>
   <script>
       let unityInst = null;
       const canvas = document.querySelector("#unity-canvas");
       // Inicializamos el motor gráfico de forma estándar (Sin compresión de origen)
+      // Inicializamos el motor gráfico usando el descompresor nativo de WebAssembly en Unity 6
       createUnityInstance(canvas, {
-          dataUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.data",
-          frameworkUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js",
-          codeUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm",
+          dataUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.data.br",
+          frameworkUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.br",
+          codeUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.br",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
           productVersion: "1.0",
+          
+          // Forzamos la descompresión Brotli del lado del cliente
+          decompressorUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js",
+          completelyDecompressOnClient: true 
       }).then((unityInstance) => {
           unityInst = unityInstance;
           console.log("¡Unity conectado con éxito al portafolio!");
@@ -246,16 +251,13 @@
       // CAPTURA DEL MOUSE: Escuchamos el movimiento en toda la ventana del navegador
       window.addEventListener('mousemove', (event) => {
           if (unityInst !== null) {
-              // Normalizamos las coordenadas del navegador a un rango de -1 a 1
               let x = (event.clientX / window.innerWidth) * 2 - 1;
               let y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-              // Multiplicamos por un factor de escala para que se note el movimiento en el espacio 3D
               let escala = 5.0; 
               let stringCoords = `${x * escala},${y * escala}`;
 
-              // ENVIAR A UNITY: (NombreObjetoEnJerarquia, NombreFuncionC#, ParametroString)
-              // CAMBIA 'NombreDeTuEsfera' por el nombre real de tu objeto en Unity
+              // Envía las coordenadas normalizadas a la esfera en Unity
               unityInst.SendMessage('Sphere', 'UpdateMousePositionFromWeb', stringCoords);
           }
       });
