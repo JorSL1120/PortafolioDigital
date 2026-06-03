@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="unity-header-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden; pointer-events: none;">
+  <div id="unity-header-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; overflow: hidden; pointer-events: none;">
     <canvas id="unity-canvas" style="width: 100%; height: 100%; background: transparent;"></canvas>
   </div>
   <nav class="navbar navbar-expand-lg hud-nav">
@@ -223,7 +223,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="main.js"></script>
-  <script src="./assets/unity/hjv/Build/hjv.loader.js"></script>
+  <script src="assets/unity/hjv/Build/hjv.loader.js"></script>
   <script>
       let unityInst = null;
       const canvas = document.querySelector("#unity-canvas");
@@ -237,6 +237,8 @@
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
           productVersion: "1.0",
+          // 💡 AGREGA ESTA LÍNEA DE ABAJO SI NO ESTÁ:
+          cacheControl: { "assets/unity/hjv/Build/*": "no-cache" }
       }).then((unityInstance) => {
           unityInst = unityInstance;
           console.log("¡Unity conectado con éxito al portafolio!");

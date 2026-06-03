@@ -1,0 +1,14 @@
+#/assets/unity/hjv/Build/*.framework.js.br
+/assets/unity/hjv/Build/*.js.br
+  Content-Type: application/javascript
+  Content-Encoding: br
+
+#/assets/unity/hjv/Build/*.wasm.br
+/assets/unity/hjv/Build/*.wasm.br
+  Content-Type: application/wasm
+  Content-Encoding: br
+
+#/assets/unity/hjv/Build/*.data.br
+/assets/unity/hjv/Build/*.data.br
+  Content-Type: application/octet-stream
+  Content-Encoding: br
