@@ -1,6 +1,6 @@
 :root {
-  --bg-color: #05050a;
-  --bg-deep: #0a0a12;
+  --bg-color: transparent; 
+  --bg-deep: rgba(10, 10, 18, 0.4); 
   --text-main: #ffffff;
   --text-gray: #d1d1d1;
   --cyan: #00f2ff;
@@ -148,3 +148,14 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-color); }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; border: 2px solid var(--bg-color); }
 ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+
+#unity-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Lo manda al fondo de todo */
+  pointer-events: auto; /* Permite que lea el mouse para el shader */
+  display: block;
+}

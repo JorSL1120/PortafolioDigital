@@ -2,43 +2,44 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <title>JorSalasDEV</title>
-    <style>
-      body { margin: 0; padding: 0; overflow: hidden; background: transparent; }
-      #unity-container { width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; }
-      #unity-canvas { width: 100%; height: 100%; background: transparent !important; }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity Web Player | PortfolioWithUnity</title>
   </head>
-  <body>
-    <div id="unity-container">
-      <canvas id="unity-canvas" tabindex="-1"></canvas>
-    </div>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <script src="Build/InteractiveHeader.loader.js"></script>
     <script>
-      var canvas = document.querySelector("#unity-canvas");
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/InteractiveHeader.loader.js";
-      
-      var config = {
-        dataUrl: buildUrl + "/InteractiveHeader.data.unityweb",
-        frameworkUrl: buildUrl + "/InteractiveHeader.framework.js.unityweb",
-        codeUrl: buildUrl + "/InteractiveHeader.wasm.unityweb",
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+
+        document.body.style.textAlign = "left";
+
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        arguments: [],
+        dataUrl: "Build/InteractiveHeader.data.unityweb",
+        frameworkUrl: "Build/InteractiveHeader.framework.js.unityweb",
+        codeUrl: "Build/InteractiveHeader.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "JorSalasDEV_AssetFactory",
+        productName: "PortfolioWithUnity",
         productVersion: "0.1.0",
-        backgroundColor: "transparent" // FORZAMOS TRANSPARENCIA AQUÍ
-      };
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config).then((unityInstance) => {
-          console.log("Unity cargado y transparente");
-        }).catch((message) => {
-          console.error(message);
-        });
-      };
-      document.body.appendChild(script);
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      }).then((unityInstance) => {
+      }).catch((message) => {
+        alert(message);
+      });
     </script>
   </body>
 </html>
