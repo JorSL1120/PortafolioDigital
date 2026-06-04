@@ -223,25 +223,20 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="main.js"></script>
-  <!-- 1. Aseguramos la ruta relativa del cargador -->
   <script src="./assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js"></script>
   <script>
       let unityInst = null;
       const canvas = document.querySelector("#unity-canvas");
       
-      // 2. Inicializamos el motor gráfico usando rutas relativas explícitas con un punto y barra (./)
+      // Cloudflare se encargará de esto ahora
       createUnityInstance(canvas, {
-          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data.br",
-          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.br",
-          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.br",
+          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data",
+          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js",
+          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
-          productVersion: "1.0",
-          
-          // Forzamos la descompresión Brotli del lado del cliente apuntando con la ruta correcta
-          decompressorUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js",
-          completelyDecompressOnClient: true 
+          productVersion: "1.0"
       }).then((unityInstance) => {
           unityInst = unityInstance;
           console.log("¡Unity conectado con éxito al portafolio!");
@@ -249,7 +244,7 @@
           console.error("Error al cargar Unity en la web:", message);
       });
 
-      // CAPTURA DEL MOUSE: Escuchamos el movimiento en toda la ventana del navegador
+      // ... resto de tu código del mouse ...
       window.addEventListener('mousemove', (event) => {
           if (unityInst !== null) {
               let x = (event.clientX / window.innerWidth) * 2 - 1;
