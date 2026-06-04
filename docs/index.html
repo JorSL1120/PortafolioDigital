@@ -227,18 +227,15 @@
   <script>
       let unityInst = null;
       const canvas = document.querySelector("#unity-canvas");
-      
       createUnityInstance(canvas, {
-          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data.br",
-          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.br",
-          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.br",
+          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data.unityweb",
+          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.unityweb",
+          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.unityweb",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
           productVersion: "1.0",
-          // Esta línea es la clave para que el navegador descomprima el .br automáticamente
-          decompressorUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js",
-          completelyDecompressOnClient: true 
+          decompressorUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js"
       }).then((unityInstance) => {
           unityInst = unityInstance;
           console.log("¡Carga exitosa!");
