@@ -227,30 +227,30 @@
   <script>
       let unityInst = null;
       const canvas = document.querySelector("#unity-canvas");
+      
       createUnityInstance(canvas, {
-          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data",
-          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js",
-          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm",
+          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data.br",
+          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.br",
+          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.br",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
-          productVersion: "1.0"
+          productVersion: "1.0",
+          // Esta línea es la clave para que el navegador descomprima el .br automáticamente
+          decompressorUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js",
+          completelyDecompressOnClient: true 
       }).then((unityInstance) => {
           unityInst = unityInstance;
-          console.log("¡Unity conectado con éxito al portafolio!");
+          console.log("¡Carga exitosa!");
       }).catch((message) => {
-          console.error("Error al cargar Unity en la web:", message);
+          console.error("Error:", message);
       });
 
-      // CAPTURA DEL MOUSE: Escuchamos el movimiento en toda la ventana del navegador
       window.addEventListener('mousemove', (event) => {
           if (unityInst !== null) {
               let x = (event.clientX / window.innerWidth) * 2 - 1;
               let y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-              let escala = 5.0; 
-              let stringCoords = `${x * escala},${y * escala}`;
-
+              let stringCoords = `${x * 5.0},${y * 5.0}`;
               unityInst.SendMessage('Sphere', 'UpdateMousePositionFromWeb', stringCoords);
           }
       });
