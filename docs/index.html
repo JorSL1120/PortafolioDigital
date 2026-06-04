@@ -228,11 +228,10 @@
       let unityInst = null;
       const canvas = document.querySelector("#unity-canvas");
       
-      // Cloudflare se encargará de esto ahora
       createUnityInstance(canvas, {
-          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data",
-          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js",
-          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm",
+          dataUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.data.unityweb",
+          frameworkUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.unityweb",
+          codeUrl: "./assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.unityweb",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "JorSalasDEV",
           productName: "InteractiveHeader",
@@ -244,7 +243,7 @@
           console.error("Error al cargar Unity en la web:", message);
       });
 
-      // ... resto de tu código del mouse ...
+      // CAPTURA DEL MOUSE: Escuchamos el movimiento en toda la ventana del navegador
       window.addEventListener('mousemove', (event) => {
           if (unityInst !== null) {
               let x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -253,7 +252,6 @@
               let escala = 5.0; 
               let stringCoords = `${x * escala},${y * escala}`;
 
-              // Envía las coordenadas normalizadas a la esfera en Unity
               unityInst.SendMessage('Sphere', 'UpdateMousePositionFromWeb', stringCoords);
           }
       });
