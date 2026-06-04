@@ -247,7 +247,7 @@
           if (unityInst !== null) {
               let x = (event.clientX / window.innerWidth) * 2 - 1;
               let y = -(event.clientY / window.innerHeight) * 2 + 1;
-              let stringCoords = `${x * 30.0},${y * 30.0}`;
+              let stringCoords = `${x * 1000.0},${y * 1000.0}`;
               console.log("Intentando enviar:", stringCoords);
               unityInst.SendMessage('Sphere', 'UpdateMousePositionFromWeb', stringCoords);
           }
