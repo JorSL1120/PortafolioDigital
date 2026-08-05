@@ -51,6 +51,17 @@ body {
 }
 .navbar-nav .nav-link { color: #fff; opacity: 0.8; transition: 0.3s; }
 .navbar-nav .nav-link:hover { opacity: 1; color: var(--cyan); }
+.navbar-nav .nav-link-cv {
+  border: 1px solid rgba(0, 242, 255, 0.45);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-weight: 700;
+  opacity: 1;
+}
+.navbar-nav .nav-link-cv:hover {
+  background: rgba(0, 242, 255, 0.12);
+  border-color: var(--cyan);
+}
 .logo-wild { height: 32px; width: auto; transition: 0.3s; }
 
 /* HERO */
