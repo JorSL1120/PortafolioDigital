@@ -52,6 +52,63 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cargar idioma preferido
     const savedLang = localStorage.getItem('preferredLang') || 'es';
     changeLanguage(savedLang);
+
+    // 3. VIDEO POPUP PARA TARJETAS ESPECIFICAS
+    const videoCards = document.querySelectorAll('.js-video-card');
+    const videoPopup = document.getElementById('video-popup');
+    const videoPlayer = document.getElementById('video-popup-player');
+    const videoPopupTitle = document.getElementById('video-popup-title');
+    const videoCloseBtn = document.getElementById('video-popup-close');
+
+    if (videoCards.length && videoPopup && videoPlayer && videoPopupTitle && videoCloseBtn) {
+        const closeVideoPopup = () => {
+            videoPlayer.pause();
+            videoPlayer.removeAttribute('src');
+            videoPlayer.load();
+            videoPopup.classList.remove('is-open');
+            videoPopup.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+
+        const openVideoPopup = (src, title) => {
+            if (!src) return;
+            videoPopupTitle.textContent = title || 'Video';
+            videoPlayer.src = src;
+            videoPopup.classList.add('is-open');
+            videoPopup.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            videoPlayer.play().catch(() => {
+                // Si autoplay es bloqueado, el usuario puede iniciar manualmente.
+            });
+        };
+
+        videoCards.forEach(card => {
+            const triggerBtn = card.querySelector('.game-play-btn');
+            if (!triggerBtn) return;
+
+            triggerBtn.addEventListener('click', () => {
+                const src = card.getAttribute('data-video-src');
+                const title = card.getAttribute('data-video-title');
+                openVideoPopup(src, title);
+            });
+        });
+
+        videoCloseBtn.addEventListener('click', closeVideoPopup);
+
+        videoPopup.addEventListener('click', (event) => {
+            if (event.target instanceof HTMLElement && event.target.hasAttribute('data-close-video')) {
+                closeVideoPopup();
+            }
+        });
+
+        videoPlayer.addEventListener('ended', closeVideoPopup);
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && videoPopup.classList.contains('is-open')) {
+                closeVideoPopup();
+            }
+        });
+    }
 });
 
 // Estilos de animación inyectados
