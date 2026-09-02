@@ -120,6 +120,18 @@ body {
 }
 .project-card-modern:hover { border-color: var(--cyan); transform: translateY(-5px); }
 
+.project-gallery-trigger {
+  width: 100%;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project-gallery-trigger:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
 .game-card {
   position: relative; border-radius: 12px; overflow: hidden;
   /*background: var(--glass);*/
@@ -254,6 +266,133 @@ body {
   width: 100%;
   display: block;
   max-height: calc(100vh - 120px);
+}
+
+.gallery-popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 4000;
+  padding: 18px;
+}
+
+.gallery-popup.is-open { display: flex; }
+
+.gallery-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 12, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.gallery-popup-dialog {
+  position: relative;
+  width: min(1000px, 100%);
+  max-height: calc(100vh - 36px);
+  background: rgba(12, 16, 24, 0.96);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.gallery-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.gallery-popup-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.gallery-popup-close,
+.gallery-control {
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(5, 8, 14, 0.78);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.gallery-popup-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.gallery-popup-content {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  background: #000;
+}
+
+.gallery-popup-content img {
+  display: block;
+  width: 100%;
+  max-height: min(68vh, 720px);
+  object-fit: contain;
+}
+
+.gallery-control {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.gallery-previous { left: 14px; }
+.gallery-next { right: 14px; }
+
+.gallery-popup-close:hover,
+.gallery-control:hover,
+.gallery-popup-close:focus-visible,
+.gallery-control:focus-visible {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.gallery-popup-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+}
+
+.gallery-indicator {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.45);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.gallery-indicator.is-active {
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+
+@media (max-width: 576px) {
+  .gallery-popup { padding: 10px; }
+  .gallery-popup-content { min-height: 220px; }
+  .gallery-control { width: 36px; height: 36px; }
+  .gallery-previous { left: 8px; }
+  .gallery-next { right: 8px; }
 }
 
 /* SKILLS */

@@ -109,6 +109,87 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // 4. GALERIA DE CAPTURAS PARA PROYECTOS PRIVADOS
+    const galleryTriggers = document.querySelectorAll('.project-gallery-trigger');
+    const galleryPopup = document.getElementById('gallery-popup');
+    const galleryTitle = document.getElementById('gallery-popup-title');
+    const galleryImage = document.getElementById('gallery-popup-image');
+    const galleryIndicators = document.getElementById('gallery-popup-indicators');
+    const galleryCloseBtn = document.getElementById('gallery-popup-close');
+    const galleryPreviousBtn = document.getElementById('gallery-popup-previous');
+    const galleryNextBtn = document.getElementById('gallery-popup-next');
+    let galleryImages = [];
+    let currentGalleryImage = 0;
+    let galleryTrigger = null;
+
+    if (galleryTriggers.length && galleryPopup && galleryTitle && galleryImage && galleryIndicators && galleryCloseBtn && galleryPreviousBtn && galleryNextBtn) {
+        const updateGallery = () => {
+            const imageNumber = currentGalleryImage + 1;
+            galleryImage.src = galleryImages[currentGalleryImage];
+            galleryImage.alt = `${galleryTitle.textContent} - captura ${imageNumber}`;
+            galleryIndicators.querySelectorAll('.gallery-indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('is-active', index === currentGalleryImage);
+                indicator.setAttribute('aria-current', index === currentGalleryImage ? 'true' : 'false');
+            });
+        };
+
+        const closeGallery = () => {
+            galleryPopup.classList.remove('is-open');
+            galleryPopup.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            galleryImage.removeAttribute('src');
+            galleryTrigger?.focus();
+        };
+
+        const changeGalleryImage = (direction) => {
+            currentGalleryImage = (currentGalleryImage + direction + galleryImages.length) % galleryImages.length;
+            updateGallery();
+        };
+
+        galleryTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                galleryImages = trigger.dataset.galleryImages.split('|').filter(Boolean);
+                if (!galleryImages.length) return;
+
+                galleryTitle.textContent = trigger.dataset.galleryTitle || 'Galería';
+                currentGalleryImage = 0;
+                galleryTrigger = trigger;
+                galleryIndicators.replaceChildren(...galleryImages.map((_, index) => {
+                    const indicator = document.createElement('button');
+                    indicator.type = 'button';
+                    indicator.className = 'gallery-indicator';
+                    indicator.setAttribute('aria-label', `Ver captura ${index + 1}`);
+                    indicator.addEventListener('click', () => {
+                        currentGalleryImage = index;
+                        updateGallery();
+                    });
+                    return indicator;
+                }));
+                updateGallery();
+                galleryPopup.classList.add('is-open');
+                galleryPopup.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                galleryCloseBtn.focus();
+            });
+        });
+
+        galleryCloseBtn.addEventListener('click', closeGallery);
+        galleryPreviousBtn.addEventListener('click', () => changeGalleryImage(-1));
+        galleryNextBtn.addEventListener('click', () => changeGalleryImage(1));
+        galleryPopup.addEventListener('click', (event) => {
+            if (event.target instanceof HTMLElement && event.target.hasAttribute('data-close-gallery')) {
+                closeGallery();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (!galleryPopup.classList.contains('is-open')) return;
+            if (event.key === 'Escape') closeGallery();
+            if (event.key === 'ArrowLeft') changeGalleryImage(-1);
+            if (event.key === 'ArrowRight') changeGalleryImage(1);
+        });
+    }
 });
 
 // Estilos de animación inyectados
