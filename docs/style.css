@@ -499,25 +499,20 @@ body {
   line-height: 1.7;
 }
 
-.cta-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 2.2rem;
-}
-
 .cta-action-card {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-align: left;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 16px 18px;
+  padding: 14px 16px;
   border-radius: 16px;
   color: #fff;
   text-decoration: none;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   transition: transform 0.28s ease, background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
   cursor: pointer;
   position: relative;
@@ -532,12 +527,12 @@ body {
 }
 
 .cta-action-icon {
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
   display: grid;
   place-items: center;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
   background: rgba(0, 242, 255, 0.12);
   color: var(--cyan);
@@ -570,15 +565,19 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  flex: 1;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .cta-action-label {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--cyan);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cta-action-whatsapp .cta-action-label {
@@ -590,7 +589,7 @@ body {
 }
 
 .cta-action-val {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #fff;
   white-space: nowrap;
@@ -602,6 +601,7 @@ body {
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.9rem;
   margin-left: auto;
+  flex-shrink: 0;
   transition: transform 0.25s ease, color 0.25s ease;
 }
 .cta-action-card:hover .cta-action-arrow {
@@ -611,15 +611,16 @@ body {
 
 .cta-copy-indicator {
   margin-left: auto;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--cyan);
   background: rgba(0, 242, 255, 0.1);
   border: 1px solid rgba(0, 242, 255, 0.28);
-  padding: 5px 10px;
+  padding: 4px 8px;
   border-radius: 20px;
   transition: all 0.25s ease;
   white-space: nowrap;
@@ -672,11 +673,20 @@ body {
 }
 
 @media (max-width: 576px) {
-  .cta-grid {
-    grid-template-columns: 1fr;
+  .cta-card {
+    padding: 1.5rem 1rem !important;
   }
   .cta-action-card {
-    padding: 14px 16px;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .cta-action-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+  }
+  .cta-action-val {
+    font-size: 0.82rem;
   }
   .cta-badge {
     font-size: 0.72rem;
