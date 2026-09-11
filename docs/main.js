@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. LÓGICA DE ANIMACIÓN (SCROLL REVEAL)
+    // 1. LÓGICA DE ANIMACIÓN (SCROLL REVEAL SUAVE Y DESVANECIMIENTO AL SALIR DE VISTA)
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px" 
+        threshold: 0.12,
+        rootMargin: "-20px 0px -40px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -10,13 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal-active');
             } else {
+                // Cuando no se ve en pantalla (por ejemplo, estando arriba en el Header), se desvanece
                 entry.target.classList.remove('reveal-active');
             }
         });
     }, observerOptions);
 
     const elementsToAnimate = document.querySelectorAll(
-        'section, .about-card, .skill-card, .project-card-modern, .game-card, .hw-card'
+        'main > section, .about-card, .skill-card, .project-card-modern, .game-card, .hw-card, .cta-card'
     );
 
     elementsToAnimate.forEach(el => {
@@ -190,6 +191,86 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.key === 'ArrowRight') changeGalleryImage(1);
         });
     }
+
+    // 5. BOTONES DE COPIAR AL PORTAPAPELES (CTA CONTACTO)
+    const copyButtons = document.querySelectorAll('.js-copy-btn');
+    const copyToast = document.getElementById('cta-copy-toast');
+    let toastTimeout = null;
+
+    copyButtons.forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const textToCopy = btn.getAttribute('data-copy-text');
+            if (!textToCopy) return;
+
+            const copyIndicator = btn.querySelector('.cta-copy-indicator');
+            const copyIcon = copyIndicator ? copyIndicator.querySelector('i') : null;
+            const copyStatus = copyIndicator ? copyIndicator.querySelector('.copy-status') : null;
+            const currentLang = localStorage.getItem('preferredLang') || 'es';
+            const feedbackText = btn.getAttribute(`data-feedback-${currentLang}`) || (currentLang === 'es' ? '¡Copiado!' : 'Copied!');
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(textToCopy);
+                } else {
+                    const tempInput = document.createElement('input');
+                    tempInput.value = textToCopy;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                }
+
+                // Efecto visual en botón
+                btn.classList.add('is-copied');
+                if (copyIcon) {
+                    copyIcon.className = 'bi bi-check2';
+                }
+                if (copyStatus) {
+                    copyStatus.textContent = feedbackText;
+                }
+
+                // Toast flotante
+                if (copyToast) {
+                    const toastMsg = copyToast.querySelector('.cta-toast-message');
+                    if (toastMsg) {
+                        toastMsg.textContent = `${feedbackText} (${textToCopy})`;
+                    }
+                    copyToast.classList.add('is-visible');
+                    clearTimeout(toastTimeout);
+                    toastTimeout = setTimeout(() => {
+                        copyToast.classList.remove('is-visible');
+                    }, 3000);
+                }
+
+                // Restaurar estado tras 2.5s
+                setTimeout(() => {
+                    btn.classList.remove('is-copied');
+                    if (copyIcon) {
+                        copyIcon.className = 'bi bi-clipboard';
+                    }
+                    if (copyStatus) {
+                        const defaultText = copyStatus.getAttribute(`data-${currentLang}`) || (currentLang === 'es' ? 'Copiar' : 'Copy');
+                        copyStatus.textContent = defaultText;
+                    }
+                }, 2500);
+
+            } catch (err) {
+                console.error('Error al copiar al portapapeles:', err);
+            }
+        });
+    });
+
+    // 6. BOTÓN FLOTANTE SCROLL TO TOP
+    const scrollTopBtn = document.getElementById('btn-scroll-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 350) {
+                scrollTopBtn.classList.add('is-visible');
+            } else {
+                scrollTopBtn.classList.remove('is-visible');
+            }
+        }, { passive: true });
+    }
 });
 
 // Estilos de animación inyectados
@@ -197,21 +278,21 @@ const style = document.createElement('style');
 style.textContent = `
     .reveal-light {
         opacity: 0;
-        transform: translateY(20px);
-        filter: blur(4px);
-        transition: opacity 1s ease-out, transform 1s ease-out, filter 1s ease-out;
-        will-change: transform, opacity;
+        transform: translateY(35px);
+        filter: blur(6px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease-out;
+        will-change: transform, opacity, filter;
     }
     .reveal-active {
         opacity: 1;
         transform: translateY(0);
         filter: blur(0px);
     }
-    .about-card:nth-child(2), .game-card:nth-child(2) { transition-delay: 0.15s; }
-    .about-card:nth-child(3), .game-card:nth-child(3) { transition-delay: 0.3s; }
-    .game-card:nth-child(4) { transition-delay: 0.45s; }
+    .about-card:nth-child(2), .game-card:nth-child(2) { transition-delay: 0.1s; }
+    .about-card:nth-child(3), .game-card:nth-child(3) { transition-delay: 0.2s; }
+    .game-card:nth-child(4) { transition-delay: 0.3s; }
     @media (max-width: 768px) {
-        .reveal-light { transition-duration: 0.7s; transform: translateY(10px); }
+        .reveal-light { transition-duration: 0.6s; transform: translateY(20px); filter: blur(3px); }
     }
 `;
 document.head.appendChild(style);
