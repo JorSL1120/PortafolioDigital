@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. LÓGICA DE ANIMACIÓN (SCROLL REVEAL SUAVE Y DESVANECIMIENTO AL SALIR DE VISTA)
+    // 1. LÓGICA DE ANIMACIÓN (SCROLL REVEAL SUAVE)
+    const isMobile = window.innerWidth <= 768;
     const observerOptions = {
-        threshold: 0.12,
-        rootMargin: "-20px 0px -40px 0px"
+        threshold: isMobile ? 0.02 : 0.08,
+        rootMargin: isMobile ? "0px 0px -20px 0px" : "-10px 0px -40px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -10,8 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal-active');
             } else {
-                // Cuando no se ve en pantalla (por ejemplo, estando arriba en el Header), se desvanece
-                entry.target.classList.remove('reveal-active');
+                // Solo desvanecer al scrollear hacia arriba en pantallas de escritorio
+                if (!isMobile) {
+                    entry.target.classList.remove('reveal-active');
+                }
             }
         });
     }, observerOptions);
@@ -278,21 +281,23 @@ const style = document.createElement('style');
 style.textContent = `
     .reveal-light {
         opacity: 0;
-        transform: translateY(35px);
-        filter: blur(6px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease-out;
-        will-change: transform, opacity, filter;
+        transform: translateY(28px);
+        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
     }
     .reveal-active {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0px);
     }
     .about-card:nth-child(2), .game-card:nth-child(2) { transition-delay: 0.1s; }
     .about-card:nth-child(3), .game-card:nth-child(3) { transition-delay: 0.2s; }
     .game-card:nth-child(4) { transition-delay: 0.3s; }
     @media (max-width: 768px) {
-        .reveal-light { transition-duration: 0.6s; transform: translateY(20px); filter: blur(3px); }
+        .reveal-light {
+            transition-duration: 0.5s;
+            transform: translateY(16px);
+            filter: none !important;
+        }
     }
 `;
 document.head.appendChild(style);
