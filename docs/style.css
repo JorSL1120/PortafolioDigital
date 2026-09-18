@@ -111,12 +111,21 @@ body {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    transition: 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 .about-card:hover {
     background: rgba(255, 255, 255, 0.06);
     border-color: var(--cyan);
-    transform: translateY(-5px);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    transform: translateY(-5px) scale(1);
+}
+
+/* SCROLLYTELLING (motor gráfico CSS): --scroll-progress lo actualiza main.js vía rAF */
+.about-card {
+    --scroll-progress: 0;
+    opacity: var(--scroll-progress);
+    transform: translateY(calc((1 - var(--scroll-progress)) * 50px)) scale(calc(0.85 + (var(--scroll-progress) * 0.15)));
+    will-change: transform, opacity;
 }
 .icon-circle {
     width: 50px; height: 50px;
@@ -432,13 +441,18 @@ body {
     background: var(--glass); 
     border-radius: 20px; 
     border: 1px solid rgba(255,255,255,0.1); 
-    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; 
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; 
+    --scroll-progress: 0;
+    opacity: var(--scroll-progress);
+    transform: translateY(calc((1 - var(--scroll-progress)) * 50px)) scale(calc(0.85 + (var(--scroll-progress) * 0.15)));
+    will-change: transform, opacity;
 }
 .skill-card:hover {
     background: rgba(255, 255, 255, 0.06);
     border-color: var(--cyan);
-    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transform: translateY(calc((1 - var(--scroll-progress)) * 50px - 5px)) scale(calc(0.85 + (var(--scroll-progress) * 0.15)));
 }
 .skill-card i {
     transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
@@ -455,14 +469,26 @@ body {
   border: 1px solid rgba(0, 242, 255, 0.3); font-weight: 600;
   display: inline-block;
   cursor: default;
-  transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease;
+  transition: background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease;
+  --scroll-progress: 0;
+  opacity: var(--scroll-progress);
+  transform: translateY(calc((1 - var(--scroll-progress)) * 30px)) scale(calc(0.6 + (var(--scroll-progress) * 0.4)));
+  will-change: transform, opacity;
 }
 .badge-custom:hover {
   background: var(--cyan);
   color: #050b14;
   border-color: var(--cyan);
-  transform: translateY(-2px) scale(1.06);
   box-shadow: 0 4px 14px rgba(0, 242, 255, 0.4);
+  transition: background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease, transform 0.22s ease;
+  transform: translateY(calc((1 - var(--scroll-progress)) * 30px - 2px)) scale(calc(0.6 + (var(--scroll-progress) * 0.4) + 0.06));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card, .skill-card, .badge-custom {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* CALL TO ACTION (CTA / LANDING PAGE) */

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, observerOptions);
 
     const elementsToAnimate = document.querySelectorAll(
-        'main > section, .about-card, .skill-card, .project-card-modern, .game-card, .hw-card, .cta-card'
+        'main > section, .project-card-modern, .game-card, .hw-card, .cta-card'
     );
 
     elementsToAnimate.forEach(el => {
@@ -273,6 +273,61 @@ document.addEventListener("DOMContentLoaded", () => {
                 scrollTopBtn.classList.remove('is-visible');
             }
         }, { passive: true });
+    }
+
+    // 7. SCROLLYTELLING HÍBRIDO (JS + CSS) para "Sobre mí" y "Habilidades Técnicas"
+    // JS solo calcula el progreso (0 a 1) y lo expone como variable CSS; todo el
+    // dibujado (opacity/transform) lo resuelve el CSS puro con calc().
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollyCards = document.querySelectorAll('.about-card, .skill-card');
+    const scrollyBubbles = document.querySelectorAll('.badge-custom');
+
+    if ((scrollyCards.length || scrollyBubbles.length) && !prefersReducedMotion) {
+        // Progreso en forma de campana: el elemento llega a su punto máximo (1)
+        // cuando su centro coincide con el centro del viewport, y decae hacia 0
+        // tanto si sigue subiendo como si sigue bajando (efecto reversible en ambos sentidos).
+        const RANGE_RATIO = 0.55; // qué tan lejos del centro puede estar y seguir visible
+
+        const clamp01 = (n) => Math.min(1, Math.max(0, n));
+
+        const getProgress = (el, centerShiftPx = 0) => {
+            const rect = el.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const elementCenter = rect.top + rect.height / 2;
+            const viewportCenter = vh / 2 + centerShiftPx;
+            const range = vh * RANGE_RATIO;
+            const distance = Math.abs(elementCenter - viewportCenter);
+            return clamp01(1 - distance / range);
+        };
+
+        let rafId = null;
+
+        const updateScrollProgress = () => {
+            rafId = null;
+
+            scrollyCards.forEach((el) => {
+                el.style.setProperty('--scroll-progress', getProgress(el).toFixed(3));
+            });
+
+            // Los "globos" (badges) de cada tarjeta aparecen escalonados: el punto
+            // de máxima visibilidad de cada uno se desplaza un poco respecto al anterior.
+            scrollyBubbles.forEach((el) => {
+                const parent = el.parentElement;
+                const indexInGroup = parent ? Array.prototype.indexOf.call(parent.children, el) : 0;
+                const staggerPx = indexInGroup * 18;
+                el.style.setProperty('--scroll-progress', getProgress(el, staggerPx).toFixed(3));
+            });
+        };
+
+        const requestScrollUpdate = () => {
+            if (rafId === null) {
+                rafId = requestAnimationFrame(updateScrollProgress);
+            }
+        };
+
+        window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+        window.addEventListener('resize', requestScrollUpdate, { passive: true });
+        updateScrollProgress();
     }
 });
 
