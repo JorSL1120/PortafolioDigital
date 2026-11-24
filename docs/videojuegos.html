@@ -43,7 +43,12 @@
         <div class="pixel-ship" id="pixel-ship"><span></span></div>
         <span class="screen-coordinates" id="screen-coordinates">X: 50　Y: 62</span>
         <span class="screen-prompt" data-en="MOVE TO PILOT">MUEVE PARA PILOTAR</span>
-        <div class="touch-controls" aria-label="Controles de la nave" data-en-aria="Ship controls"><button type="button" data-move="left" aria-label="Mover a la izquierda" data-en-aria="Move left">←</button><button type="button" data-move="up" aria-label="Mover hacia arriba" data-en-aria="Move up">↑</button><button type="button" data-move="down" aria-label="Mover hacia abajo" data-en-aria="Move down">↓</button><button type="button" data-move="right" aria-label="Mover a la derecha" data-en-aria="Move right">→</button></div>
+        <div class="touch-controls" role="group" aria-label="Controles de la nave" data-en-aria="Ship controls">
+          <button type="button" data-move="up" aria-label="Mover hacia arriba" data-en-aria="Move up"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg></button>
+          <button type="button" data-move="left" aria-label="Mover a la izquierda" data-en-aria="Move left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg></button>
+          <button type="button" data-move="down" aria-label="Mover hacia abajo" data-en-aria="Move down"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"></path></svg></button>
+          <button type="button" data-move="right" aria-label="Mover a la derecha" data-en-aria="Move right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
+        </div>
       </div>
       <div class="hero-status"><span>WILD SHOCK STUDIO / PROJECTS</span><span>EST. 2020 — NOW</span><span>SCROLL TO EXPLORE ↓</span></div>
       <div class="arcade-hero-outline" aria-hidden="true"></div>
@@ -71,10 +76,10 @@
             <button type="button" class="balloon" aria-label="Descubrir proyecto 9" data-en-aria="Discover project 9" aria-pressed="false"><span class="balloon-body" aria-hidden="true"><span>09</span></span></button>
           </div>
           <p class="discovery-complete" id="discovery-complete" data-en="✦ LEVEL COMPLETE! You found every project." hidden>✦ ¡NIVEL COMPLETADO! Descubriste todos los proyectos.</p>
-          <div class="machine-bottom"><span data-en="✳ PICK YOUR NEXT ADVENTURE">✳ ELIGE TU PRÓXIMA AVENTURA</span><button type="button" id="show-all-games" data-en="View all projects ↗&#xFE0E;">Ver todos los proyectos ↗&#xFE0E;</button></div>
+          <div class="machine-bottom"><span data-en="✳&#xFE0E; PICK YOUR NEXT ADVENTURE">✳&#xFE0E; ELIGE TU PRÓXIMA AVENTURA</span><button type="button" id="show-all-games" data-en="View all projects ↗&#xFE0E;">Ver todos los proyectos ↗&#xFE0E;</button></div>
         </div>
         <div class="discovery-result" id="discovery-result">
-          <div class="discovery-empty" id="discovery-empty" hidden><span aria-hidden="true">✳</span><p class="machine-eyebrow">PLAYER ONE / READY?</p><h3 data-en="A new world awaits.">Un nuevo mundo te espera.</h3><p data-en="Pop a balloon to reveal a game. No coins needed.">Explota un globo para descubrir un juego. No necesitas monedas.</p><span class="discovery-arrow" aria-hidden="true">↖&#xFE0E;</span></div>
+          <div class="discovery-empty" id="discovery-empty" hidden><span aria-hidden="true">✳&#xFE0E;</span><p class="machine-eyebrow">PLAYER ONE / READY?</p><h3 data-en="A new world awaits.">Un nuevo mundo te espera.</h3><p data-en="Pop a balloon to reveal a game. No coins needed.">Explota un globo para descubrir un juego. No necesitas monedas.</p><span class="discovery-arrow" aria-hidden="true">↖&#xFE0E;</span></div>
           <p class="discovery-announcement" id="discovery-announcement" role="status" aria-live="polite"></p>
           <a class="back-to-balloons" id="back-to-balloons" href="#balloon-machine" data-en="← Choose another balloon" hidden>← Elegir otro globo</a>
           <div class="game-projects" id="game-projects">
@@ -118,7 +123,7 @@
         </div>
       </div>
     </section>
-    <section class="arcade-outro"><span class="outro-star">✳</span><p data-en="Would you like to create a new world?">¿Te gustaría crear un mundo nuevo?</p><a href="./index.html#contacto" data-en="START A PROJECT ↗&#xFE0E;">INICIAR PROYECTO <span>↗&#xFE0E;</span></a><a class="outro-web-link" href="./webs.html" data-en="SEE ALSO: WEB PROJECTS →">VER TAMBIÉN: PROYECTOS WEB →</a></section>
+    <section class="arcade-outro"><span class="outro-star">✳&#xFE0E;</span><p data-en="Would you like to create a new world?">¿Te gustaría crear un mundo nuevo?</p><a href="./index.html#contacto" data-en="START A PROJECT ↗&#xFE0E;">INICIAR PROYECTO <span>↗&#xFE0E;</span></a><a class="outro-web-link" href="./webs.html" data-en="SEE ALSO: WEB PROJECTS →">VER TAMBIÉN: PROYECTOS WEB →</a></section>
   </main>
   <footer class="arcade-footer"><a href="./index.html">JORGE SALAS <span>© <span id="current-year"></span></span></a><span>BUILT WITH CURIOSITY + CODE</span><a href="#arcade-start">BACK TO TOP ↑</a></footer>
 
