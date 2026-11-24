@@ -50,12 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('preferredLang', lang);
     }
 
-    btnEs.addEventListener('click', () => changeLanguage('es'));
-    btnEn.addEventListener('click', () => changeLanguage('en'));
+    if (btnEs && btnEn) {
+        btnEs.addEventListener('click', () => changeLanguage('es'));
+        btnEn.addEventListener('click', () => changeLanguage('en'));
 
-    // Cargar idioma preferido
-    const savedLang = localStorage.getItem('preferredLang') || 'es';
-    changeLanguage(savedLang);
+        const savedLang = localStorage.getItem('preferredLang') || 'es';
+        changeLanguage(savedLang);
+    }
 
     // 3. VIDEO POPUP PARA TARJETAS ESPECIFICAS
     const videoCards = document.querySelectorAll('.js-video-card');
@@ -131,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const updateGallery = () => {
             const imageNumber = currentGalleryImage + 1;
             galleryImage.src = galleryImages[currentGalleryImage];
-            galleryImage.alt = `${galleryTitle.textContent} - captura ${imageNumber}`;
+            galleryImage.alt = `${galleryTitle.textContent} - ${document.documentElement.lang === 'en' ? 'image' : 'captura'} ${imageNumber}`;
             galleryIndicators.querySelectorAll('.gallery-indicator').forEach((indicator, index) => {
                 indicator.classList.toggle('is-active', index === currentGalleryImage);
                 indicator.setAttribute('aria-current', index === currentGalleryImage ? 'true' : 'false');
@@ -163,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const indicator = document.createElement('button');
                     indicator.type = 'button';
                     indicator.className = 'gallery-indicator';
-                    indicator.setAttribute('aria-label', `Ver captura ${index + 1}`);
+                    indicator.setAttribute('aria-label', `${document.documentElement.lang === 'en' ? 'View image' : 'Ver captura'} ${index + 1}`);
                     indicator.addEventListener('click', () => {
                         currentGalleryImage = index;
                         updateGallery();

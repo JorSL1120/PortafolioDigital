@@ -3,526 +3,131 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jorge Salas | Web & Game Developer</title>
+  <meta name="theme-color" content="#080b13">
+  <meta name="description" content="Portafolio de Jorge Salas: desarrollo web, videojuegos y experiencias digitales interactivas.">
+  <title>Jorge Salas | Desarrollador creativo</title>
   <link rel="icon" href="./IMGS/Lobo.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-  <canvas id="unity-canvas"></canvas>
-  <nav class="navbar navbar-expand-lg hud-nav">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="./IMGS/Lobo.png" class="logo-wild me-2" alt="Logo">
-        <span><strong class="text-white">Jorge Salas</strong> <span class="d-none d-sm-inline text-cyan">| Portfolio</span></span>
+  <div class="intro-loader" id="intro-loader" aria-hidden="true">
+    <div class="loader-terminal">
+      <div class="terminal-top"><span></span><span></span><span></span><small>jorge-salas.dev</small></div>
+      <p><span class="code-muted">const</span> portfolio = <span class="code-accent">"Jorge Salas Dev"</span>;</p>
+      <p><span class="code-muted">await</span> portfolio.<span class="code-accent">cargar</span>();</p>
+      <div class="loader-status"><span class="loader-pulse"></span><span id="loader-message">Preparando experiencia</span><span class="loader-dots">...</span></div>
+      <div class="loader-track"><span></span></div>
+    </div>
+  </div>
+  <canvas class="ambient-canvas" id="ambient-canvas" aria-hidden="true"></canvas>
+  <div class="ambient-glow glow-one" aria-hidden="true"></div>
+  <div class="ambient-glow glow-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Navegación principal" data-en-aria="Main navigation">
+      <a class="brand" href="#inicio" aria-label="Jorge Salas, inicio">
+        <img src="./IMGS/Lobo.png" alt="" width="34" height="34">
+        <span>jorge<span class="brand-accent">salas</span><small>.dev</small></span>
       </a>
-      
-      <div class="lang-switcher ms-auto me-3">
-        <button id="btn-es" class="btn-lang active">ES</button>
-        <span class="text-white-50">|</span>
-        <button id="btn-en" class="btn-lang">EN</button>
+      <div class="nav-utilities">
+        <div class="language-switch" role="group" aria-label="Idioma / Language"><button type="button" data-language="es" aria-pressed="true">ES</button><span>/</span><button type="button" data-language="en" aria-pressed="false">EN</button></div>
+        <details class="social-menu"><summary><span data-en="Socials">Redes</span> <span aria-hidden="true">↗</span></summary><div class="social-links">
+          <a href="https://www.instagram.com/jorsalasdev/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@jorsalasdev?lang=es-419" target="_blank" rel="noopener noreferrer">TikTok ↗</a><a href="https://www.youtube.com/@jorsalasDEV" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="https://jorsalasdev.itch.io/" target="_blank" rel="noopener noreferrer">itch.io ↗</a><a href="https://www.linkedin.com/in/jorge-salas-leybon-3b514235b" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/jorsalasDEV" target="_blank" rel="noopener noreferrer">X ↗</a><a href="https://jorsl1120.github.io/CV/" target="_blank" rel="noopener noreferrer">CV ↗</a>
+        </div></details>
       </div>
-
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <i class="bi bi-list text-white fs-2"></i>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item me-lg-2 mb-2 mb-lg-0"><a class="nav-link nav-link-cv px-3" href="https://jorsl1120.github.io/CV/" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-person me-2"></i>CV</a></li>
-          <li class="nav-item me-lg-2 mb-2 mb-lg-0"><a class="nav-link nav-link-cv px-3" href="#contacto"><i class="bi bi-envelope me-2"></i><span class="lang-text" data-es="Contáctame" data-en="Contact Me">Contáctame</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/jorsalasdev/" target="_blank"><i class="bi bi-instagram"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com/@jorsalasdev?lang=es-419" target="_blank"><i class="bi bi-tiktok"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@jorsalasDEV" target="_blank"><i class="bi bi-youtube"></i></a></li>
-          <li class="nav-item"><a class="nav-link text-cyan fw-bold" href="https://jorsalasdev.itch.io/" target="_blank">Itch.io</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/jorge-salas-leybon-3b514235b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Jorge Salas"><i class="bi bi-linkedin"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href="https://x.com/jorsalasDEV" target="_blank"><i class="bi bi-twitter-x"></i></a></li>
-        </ul>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú"><span></span><span></span></button>
+      <div class="nav-links" id="primary-nav">
+        <a href="#sobre-mi" data-en="About">Sobre mí</a>
+        <a href="#habilidades" data-en="Skills">Habilidades</a>
+        <a href="#proyectos" data-en="Projects">Proyectos</a>
+        <a class="nav-contact" href="#contacto" data-en="Let's talk ↗">Hablemos <span aria-hidden="true">↗</span></a>
       </div>
-    </div>
-  </nav>
-
-  <header id="inicio" class="header-hero d-flex align-items-center">
-    <div class="container text-center text-md-start">
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center mb-4 mb-md-0">
-          <img src="./IMGS/Yo.JPEG" alt="Jorge Salas" class="perfil-img">
-        </div>
-        <div class="col-md-8">
-          <h4 class="text-cyan mb-1 fw-600 lang-text" data-es="Web & Game Developer" data-en="Web & Game Developer">Web & Game Developer</h4>
-          <h1 class="display-3 fw-800 text-white lang-text" data-es="Hola, soy <span class='text-gradient'>Jorge Salas</span>" data-en="Hi, I'm <span class='text-gradient'>Jorge Salas</span>">Hola, soy <span class="text-gradient">Jorge Salas</span></h1>
-          <p class="fs-4 fw-light text-light-gray mb-2 lang-text" data-es="Creando experiencias digitales de alto rendimiento." data-en="Creating high-performance digital experiences.">Creando experiencias digitales de alto rendimiento.</p>
-          <p class="fs-6 fw-normal text-light-gray mb-4 lang-text" data-es="Desarrollo herramientas interactivas que conectan la estructura limpia del entorno web con la fluidez visual de los videojuegos." data-en="I develop interactive tools connecting the clean structure of the web environment with the visual fluidity of video games.">Desarrollo herramientas interactivas que conectan la estructura limpia del entorno web con la fluidez visual de los videojuegos.</p>
-          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
-            <a href="#contacto" class="btn btn-hero-cta">
-              <i class="bi bi-chat-dots-fill me-2"></i>
-              <span class="lang-text" data-es="Hablemos / Contáctame" data-en="Let's Talk / Contact Me">Hablemos / Contáctame</span>
-              <i class="bi bi-arrow-down-short ms-1 fs-5"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </nav>
   </header>
 
   <main>
-    <section class="py-6 bg-deep">
-      <div class="container">
-        <div class="row mb-5 text-center">
-          <div class="col-12">
-            <h2 class="section-title lang-text" data-es="Sobre mí" data-en="About Me">Sobre mí</h2>
-            <p class="lead mx-auto text-white lang-text" style="max-width: 850px; line-height: 1.8;" 
-               data-es="Soy Jorge Salas, un desarrollador enfocado en crear experiencias digitales que van desde plataformas web modernas hasta videojuegos interactivos y hardware. Mi filosofía es directa: todo lo que construyo tiene que sentirse natural. Sin importar si estás navegando por una página web o interactuando dentro de un videojuego, la experiencia debe ser inmediata. Al combinar mi experiencia en motores gráficos, interfaces web y arquitecturas lógicas, logro que cada proyecto no solo funcione de manera impecable a nivel técnico, sino que realmente transmita esa sensación de ser fluido, rápido y profesional que el usuario espera desde el primer clic." 
-               data-en="I'm Jorge Salas, a developer focused on creating digital experiences ranging from modern web platforms to interactive video games and hardware. My philosophy is straightforward: everything I build has to feel natural. Whether you're browsing a website or interacting inside a video game, the experience must be seamless. By combining my background in game engines, web interfaces, and logical architecture, I ensure every project not only runs impeccably from a technical standpoint, but truly conveys that fluid, fast, and professional feel users expect from the very first click.">
-               Soy <strong>Jorge Salas</strong>, un desarrollador enfocado en crear experiencias digitales que van desde plataformas web modernas hasta videojuegos interactivos y hardware. Mi filosofía es directa: todo lo que construyo tiene que sentirse natural. Sin importar si estás navegando por una página web o interactuando dentro de un videojuego, la experiencia debe ser inmediata. Al combinar mi experiencia en motores gráficos, interfaces web y arquitecturas lógicas, logro que cada proyecto no solo funcione de manera impecable a nivel técnico, sino que realmente transmita esa sensación de ser fluido, rápido y profesional que el usuario espera desde el primer clic.
-            </p>
-          </div>
+    <section class="hero section-wrap" id="inicio">
+      <div class="hero-copy">
+        <div class="availability"><span></span> <span data-en="Available for new projects">Disponible para nuevos proyectos</span></div>
+        <p class="eyebrow" data-en="WEB & GAME DEVELOPER">DESARROLLADOR WEB & GAME DEVELOPER</p>
+        <h1><span data-en="Hi, I'm">Hola, soy</span><br><span class="hero-name">Jorge Salas</span><span class="hero-period">.</span></h1>
+        <p class="hero-lede" data-en="I design and build digital experiences that feel as good as they work.">Diseño y construyo experiencias digitales que se sienten tan bien como funcionan.</p>
+        <div class="hero-actions">
+          <a class="button button-primary magnetic" href="#proyectos" data-en="Explore projects ↓">Explorar proyectos <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="#contacto" data-en="Let's talk ↗">Conversemos <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="about-card p-4 h-100">
-              <div class="icon-circle mb-3"><i class="bi bi-globe2"></i></div>
-              <h4 class="text-cyan mb-3 lang-text" data-es="Especialista Web" data-en="Web Specialist">Web Specialist</h4>
-              <p class="text-light-gray lang-text" data-es="Desarrollo desde sitios personalizados con HTML, CSS y JavaScript hasta soluciones dinámicas en WordPress. Mi prioridad es el SEO y la navegación impecable." data-en="I develop everything from custom sites with HTML, CSS, and JavaScript to dynamic solutions in WordPress. My priority is SEO and seamless navigation.">Desarrollo desde sitios personalizados con <strong>HTML, CSS y JavaScript</strong> hasta soluciones dinámicas en <strong>WordPress</strong>. Mi prioridad es que cada página sea totalmente responsiva, esté optimizada para buscadores (<strong>SEO</strong>) y ofrezca una navegación impecable.</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="about-card p-4 h-100">
-              <div class="icon-circle mb-3"><i class="bi bi-unity"></i></div>
-              <h4 class="text-cyan mb-3 lang-text" data-es="Desarrollador de Juegos" data-en="Game Developer">Game Developer</h4>
-              <p class="text-light-gray lang-text" data-es="Me enfoco en crear mecánicas sólidas y experiencias envolventes utilizando motores como Unity y Unreal Engine." data-en="I focus on creating solid mechanics and immersive experiences using engines like Unity and Unreal Engine.">Me enfoco en crear mecánicas sólidas y experiencias envolventes utilizando motores como <strong>Unity y Unreal Engine</strong>. Esta faceta me permite dominar la lógica de programación compleja; esa misma atención al detalle la traslado a mis desarrollos web.</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="about-card p-4 h-100">
-              <div class="icon-circle mb-3"><i class="bi bi-cpu"></i></div>
-              <h4 class="text-cyan mb-3 lang-text" data-es="Hardware y Lógica" data-en="Hardware & Logic">Hardware & Logic</h4>
-              <p class="text-light-gray lang-text" data-es="También disfruto trabajar con hardware y Arduino, integrando el mundo físico con el digital." data-en="I also enjoy working with hardware and Arduino, integrating the physical world with the digital.">También disfruto trabajar con hardware y <strong>Arduino</strong>, integrando el mundo físico con el digital. Mi enfoque es simple: entregar proyectos bien hechos, con un diseño atractivo y un rendimiento que supere las expectativas.</p>
-            </div>
-          </div>
+        <div class="hero-footnote"><span class="footnote-line"></span> <span data-en="Based in Mexico">Basado en México</span> <span class="footnote-dot">·</span> <span data-en="Building digital experiences for people">Trabajando en digital, pensando en las personas</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Retrato de Jorge Salas" data-en-aria="Portrait of Jorge Salas">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="portrait-frame">
+          <img src="./IMGS/Yo.JPEG" alt="Jorge Salas" fetchpriority="high">
+          <span class="portrait-index">JS / 01</span>
+        </div>
+        <div class="floating-note note-top"><span class="note-icon">&lt;/&gt;</span><span>IDEAS<br><strong data-en="in motion">en movimiento</strong></span></div>
+        <div class="floating-note note-bottom"><span class="note-spark">✳</span><span><span data-en="Creativity">Creatividad</span><br><strong data-en="with purpose">con propósito</strong></span></div>
+      </div>
+      <a class="scroll-cue" href="#sobre-mi"><span></span> <span data-en="Scroll to get to know me">Desliza para conocerme</span></a>
+    </section>
+
+    <section class="about section-wrap" id="sobre-mi">
+      <div class="section-kicker"><span>01</span> <span data-en="A LITTLE CONTEXT">UN POCO DE CONTEXTO</span></div>
+      <div class="about-grid">
+        <h2 data-en-html="Between code<br>and <span>imagination.</span>">Entre el código<br>y la <span>imaginación.</span></h2>
+        <div class="about-copy">
+          <p data-en="I'm Jorge, a developer focused on creating clear, engaging and easy-to-use digital products. I combine the attention to detail of the web with the creativity and logic I learned making games.">Soy Jorge, desarrollador enfocado en crear productos digitales claros, atractivos y fáciles de usar. Combino el cuidado por los detalles de la web con la creatividad y la lógica que aprendí haciendo videojuegos.</p>
+          <p data-en="I enjoy turning ideas into real experiences: from a useful platform to an interactive world that invites exploration.">Me gusta convertir ideas en experiencias reales: desde una plataforma útil hasta un mundo interactivo que invite a explorar.</p>
+          <div class="skill-chips" aria-label="Tecnologías y herramientas" data-en-aria="Technologies and tools"><span>HTML / CSS / JS</span><span>WordPress</span><span>Unity</span><span>C#</span><span>Blender</span><span>SEO</span></div>
         </div>
       </div>
     </section>
 
-    <section class="py-6">
-      <div class="container text-center">
-        <h2 class="section-title lang-text" data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="skill-card p-4 h-100">
-              <i class="bi bi-code-slash fs-1 text-cyan"></i>
-              <h4 class="mt-3 text-white">Web Dev</h4>
-              <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                <span class="badge-custom">HTML5</span><span class="badge-custom">CSS3</span>
-                <span class="badge-custom">JS</span><span class="badge-custom">Bootstrap</span>
-                <span class="badge-custom">WordPress</span><span class="badge-custom">SEO</span>
-                <span class="badge-custom lang-text" data-es="Bases de datos" data-en="Databases">Bases de datos</span>
-                <span class="badge-custom">SaaS</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="skill-card p-4 h-100">
-              <i class="bi bi-controller fs-1 text-cyan"></i>
-              <h4 class="mt-3 text-white">Game Dev</h4>
-              <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                <span class="badge-custom">Unity</span><span class="badge-custom">C#</span>
-                <span class="badge-custom">C++</span><span class="badge-custom">Unreal</span>
-                <span class="badge-custom">Git</span><span class="badge-custom">Arduino</span>
-                <span class="badge-custom">Blueprints</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="skill-card p-4 h-100">
-              <i class="bi bi-vector-pen fs-1 text-cyan"></i>
-              <h4 class="mt-3 text-white lang-text" data-es="Diseño y 3D" data-en="Design & 3D">Design & 3D</h4>
-              <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                <span class="badge-custom">Blender</span><span class="badge-custom">Photoshop</span>
-                <span class="badge-custom">Illustrator</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section class="technical section-wrap" id="habilidades">
+      <div class="section-kicker"><span>02</span> <span data-en="THE TOOLKIT">MIS HERRAMIENTAS</span></div>
+      <div class="technical-heading"><h2 data-en="Technical skills.">Habilidades técnicas<span>.</span></h2><p data-en="The tools I use to turn ideas into functional and engaging experiences.">Las herramientas con las que convierto ideas en experiencias funcionales y atractivas.</p></div>
+      <div class="technical-grid">
+        <article class="technical-card"><span class="technical-icon">&lt;/&gt;</span><h3 data-en="Web development">Desarrollo web</h3><p data-en="Interfaces, platforms and solutions built for the web.">Interfaces, plataformas y soluciones para la web.</p><div class="skill-chips"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span><span>WordPress</span><span>SEO</span><span data-en="Databases">Bases de datos</span><span>SaaS</span></div></article>
+        <article class="technical-card"><span class="technical-icon">✳</span><h3 data-en="Game development">Desarrollo de videojuegos</h3><p data-en="Mechanics, interactive worlds and immersive experiences.">Mecánicas, mundos interactivos y experiencias inmersivas.</p><div class="skill-chips"><span>Unity</span><span>C#</span><span>C++</span><span>Unreal Engine</span><span>Blueprints</span><span>Git</span><span>Arduino</span></div></article>
+        <article class="technical-card"><span class="technical-icon">✦</span><h3 data-en="Design & 3D">Diseño y 3D</h3><p data-en="Visual tools to give each idea its own identity.">Herramientas visuales para darle identidad a cada idea.</p><div class="skill-chips"><span>Blender</span><span>Photoshop</span><span>Illustrator</span></div></article>
       </div>
     </section>
 
-    <section class="py-6 bg-deep">
-      <div class="container text-center">
-        <h2 class="section-title lang-text" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</h2>
-        <div class="row g-4 text-start">
-          <div class="col-md-6">
-            <a href="https://jorsl1120.github.io/rankedgamer/" target="_blank" class="text-decoration-none">
-              <div class="card project-card-modern p-4 h-100">
-                <h5 class="text-cyan mb-3">Ranked Gamer</h5>
-                <p class="text-light-gray lang-text" data-es="Plataforma de contenidos especializada en videojuegos. Enfocada en optimización de carga." data-en="Gaming content platform. Focused on load optimization and clear navigation.">Plataforma de contenidos especializada en videojuegos. Enfocada en <strong>optimización de carga</strong> y navegación clara.</p>
-                <div class="mt-auto pt-3"><span class="tag">SEO</span><span class="tag">Web Design</span></div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a href="https://jorsl1120.github.io/PaginaMammut/" target="_blank" class="text-decoration-none">
-              <div class="card project-card-modern p-4 h-100">
-                <h5 class="text-cyan mb-3">Mammut</h5>
-                <p class="text-light-gray lang-text" data-es="Landing page con diseño responsivo, enfocada en resaltar la identidad visual." data-en="Landing page with responsive design, focused on highlighting visual identity.">Landing page con <strong>diseño responsivo</strong>, enfocada en resaltar la identidad visual y facilitar la conversión.</p>
-                <div class="mt-auto pt-3"><span class="tag">HTML/CSS</span><span class="tag">Bootstrap</span></div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <button class="card project-card-modern project-gallery-trigger p-4 h-100" type="button" data-gallery-title="Agenda Digital SaaS" data-gallery-images="./IMGS/SaaSAgenda/A1.png|./IMGS/SaaSAgenda/A2.png|./IMGS/SaaSAgenda/A3.png|./IMGS/SaaSAgenda/A4.png|./IMGS/SaaSAgenda/A5.png|./IMGS/SaaSAgenda/A6.png" aria-label="Ver capturas de Agenda Digital SaaS">
-              <h5 class="text-cyan mb-3 lang-text" data-es="Agenda Digital SaaS" data-en="Digital Calendar SaaS">Agenda Digital SaaS</h5>
-              <p class="text-light-gray lang-text" data-es="Plataforma SaaS para organizar citas, gestionar horarios y centralizar la agenda de los usuarios." data-en="SaaS platform for organizing appointments, managing schedules, and centralizing users' calendars.">Plataforma <strong>SaaS</strong> para organizar citas, gestionar horarios y centralizar la agenda de los usuarios.</p>
-              <div class="mt-auto pt-3"><span class="tag">SaaS</span><span class="tag lang-text" data-es="Agenda Digital" data-en="Digital Calendar">Agenda Digital</span></div>
-            </button>
-          </div>
-          <div class="col-md-6">
-            <a href="https://jorsl1120.github.io/Wiki-ProyectoFinal/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
-              <div class="card project-card-modern p-4 h-100">
-                <h5 class="text-cyan mb-3">Wiki</h5>
-                <p class="text-light-gray lang-text" data-es="Wiki informativa desarrollada con HTML5, CSS3 y Bootstrap, con buscador dinámico para encontrar contenido rápidamente." data-en="Informational wiki built with HTML5, CSS3, and Bootstrap, with a dynamic search engine for finding content quickly.">Wiki informativa desarrollada con <strong>HTML5, CSS3 y Bootstrap</strong>, con buscador dinámico para encontrar contenido rápidamente.</p>
-                <div class="mt-auto pt-3"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Bootstrap</span></div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a href="https://jorsl1120.github.io/CV/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
-              <div class="card project-card-modern p-4 h-100">
-                <h5 class="text-cyan mb-3 lang-text" data-es="CV Interactivo" data-en="Interactive Resume">CV Interactivo</h5>
-                <p class="text-light-gray lang-text" data-es="Sitio web para presentar mi currículum, con opciones integradas para descargarlo en PDF o imprimirlo." data-en="Website to present my resume, with integrated options to download it as a PDF or print it.">Sitio web para presentar mi currículum, con opciones integradas para <strong>descargarlo en PDF o imprimirlo</strong>.</p>
-                <div class="mt-auto pt-3"><span class="tag">HTML/CSS</span><span class="tag">PDF</span><span class="tag">Print</span></div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <button class="card project-card-modern project-gallery-trigger p-4 h-100" type="button" data-gallery-title="Restaurante SaaS" data-gallery-images="./IMGS/SaaSRestaurante/R1.png|./IMGS/SaaSRestaurante/R2.png|./IMGS/SaaSRestaurante/R3.png|./IMGS/SaaSRestaurante/R4.png|./IMGS/SaaSRestaurante/R5.png" aria-label="Ver capturas de Restaurante SaaS">
-              <h5 class="text-cyan mb-3 lang-text" data-es="Restaurante SaaS" data-en="Restaurant SaaS">Restaurante SaaS</h5>
-              <p class="text-light-gray lang-text" data-es="Sistema SaaS para restaurantes que permite gestionar pedidos y consultar estadísticas relevantes del negocio." data-en="SaaS system for restaurants that lets them manage orders and review relevant business statistics.">Sistema <strong>SaaS</strong> para restaurantes que permite gestionar pedidos y consultar estadísticas relevantes del negocio.</p>
-              <div class="mt-auto pt-3"><span class="tag">SaaS</span><span class="tag lang-text" data-es="Pedidos" data-en="Orders">Pedidos</span><span class="tag lang-text" data-es="Estadísticas" data-en="Analytics">Estadísticas</span></div>
-            </button>
-          </div>
-        </div>
+    <section class="projects section-wrap" id="proyectos">
+      <div class="section-kicker"><span>03</span> <span data-en="SELECTED WORK">TRABAJO SELECCIONADO</span></div>
+      <div class="projects-heading">
+        <h2 data-en-html="Projects<span>.</span>">Proyectos<span>.</span></h2>
+        <p data-en="Two different worlds, one intention: creating something worth exploring.">Dos mundos distintos, una misma intención: crear algo que valga la pena explorar.</p>
+      </div>
+      <div class="project-paths">
+        <a class="path-card path-web magnetic" href="./webs.html">
+          <div class="path-topline"><span>01 / DIGITAL PRODUCTS</span><span class="path-arrow" aria-hidden="true">↗</span></div>
+          <div class="path-art path-art-web" aria-hidden="true"><div class="browser-window"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-content"><span></span><b></b><em></em><i></i></div></div><div class="path-orb"></div></div>
+          <div class="path-info"><div><h3 data-en="Web experiences">Experiencias web</h3><p data-en="Sites, platforms and digital products designed for real people.">Sitios, plataformas y productos digitales diseñados para personas reales.</p></div><span class="path-link" data-en="View projects →">Ver proyectos <b aria-hidden="true">→</b></span></div>
+        </a>
+        <a class="path-card path-games magnetic" href="./videojuegos.html">
+          <div class="path-topline"><span>02 / INTERACTIVE WORLDS</span><span class="path-arrow" aria-hidden="true">↗</span></div>
+          <div class="path-art path-art-games" aria-hidden="true"><div class="pixel-star star-a">✦</div><div class="pixel-star star-b">✧</div><div class="gamepad-art"><span class="pad-cross">✣</span><span class="pad-buttons">●<i>●</i></span></div><div class="game-art-caption">PRESS START_</div></div>
+          <div class="path-info"><div><h3 data-en="Video games">Videojuegos</h3><p data-en="Small universes of action, exploration and immersive experiences.">Pequeños universos de acción, exploración y experiencias inmersivas.</p></div><span class="path-link" data-en="Enter the arcade →">Entrar al arcade <b aria-hidden="true">→</b></span></div>
+        </a>
       </div>
     </section>
 
-    <section class="py-6">
-      <div class="container text-center">
-        <h2 class="section-title lang-text" data-es="Videojuegos" data-en="Video Games">Videojuegos</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/space-wars" target="_blank" class="text-decoration-none">
-              <div class="game-card h-100">
-                <div class="game-media">
-                  <img src="./IMGS/SpaceWars.png" alt="Space Wars">
-                  <div class="game-overlay"><h6>Space Wars</h6></div>
-                </div>
-                <div class="game-info">
-                  <p class="game-description lang-text" data-es="Arcade de disparos inspirado en los clásicos matamarcianos, con acción rápida y partidas directas." data-en="A shooting arcade game inspired by classic space shooters, with fast-paced action and straightforward matches.">Arcade de disparos inspirado en los clásicos matamarcianos, con acción rápida y partidas directas.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/cosmic-x-cape" target="_blank" class="text-decoration-none">
-              <div class="game-card h-100">
-                <div class="game-media">
-                  <img src="./IMGS/CosmicX-Cape.png" alt="Cosmic X-Cape">
-                  <div class="game-overlay"><h6>Cosmic X-Cape</h6></div>
-                </div>
-                <div class="game-info">
-                  <p class="game-description lang-text" data-es="Defiende la Tierra de una invasión inminente en esta aventura espacial llena de acción y reflejos." data-en="Defend Earth from an imminent invasion in this space adventure filled with action and quick reflexes.">Defiende la Tierra de una invasión inminente en esta aventura espacial llena de acción y reflejos.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/tank-attack" target="_blank" class="text-decoration-none">
-              <div class="game-card h-100">
-                <div class="game-media">
-                  <img src="./IMGS/TankAttack.png" alt="Tank Attack">
-                  <div class="game-overlay"><h6>Tank Attack</h6></div>
-                </div>
-                <div class="game-info">
-                  <p class="game-description lang-text" data-es="Videojuego multijugador local de combate entre tanques, donde la estrategia y la precisión definen al vencedor." data-en="A local multiplayer tank combat game where strategy and precision determine the winner.">Videojuego multijugador local de combate entre tanques, donde la estrategia y la precisión definen al vencedor.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://wild-shock-studio.itch.io/rey-del-arco" target="_blank" class="text-decoration-none">
-              <div class="game-card h-100">
-                <div class="game-media">
-                  <img src="./IMGS/ReyDelArco.png" alt="Rey del Arco">
-                  <div class="game-overlay"><h6>Rey del Arco</h6></div>
-                </div>
-                <div class="game-info">
-                  <p class="game-description lang-text" data-es="Pon a prueba tus reflejos como portero y demuestra si tienes lo necesario para convertirte en el rey del arco." data-en="Put your goalkeeper reflexes to the test and prove you have what it takes to become the king of the goal.">Pon a prueba tus reflejos como portero y demuestra si tienes lo necesario para convertirte en el rey del arco.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://play.google.com/store/apps/details?id=com.MostStudio.Dominadas&pcampaignid=web_share" target="_blank" class="text-decoration-none">
-              <div class="game-card h-100">
-                <div class="game-media">
-                  <img src="./IMGS/Dominadas.png" alt="Dominadas Futboleras">
-                  <div class="game-overlay"><h6>Dominadas Futboleras</h6></div>
-                </div>
-                <div class="game-info">
-                  <p class="game-description lang-text" data-es="Desarrollado durante mis prácticas profesionales en MOST Studio, este juego reta a Chilin a dominar el balón el mayor tiempo posible." data-en="Developed during my professional internship at MOST Studio, this game challenges Chilin to keep the ball under control for as long as possible.">Desarrollado durante mis prácticas profesionales en MOST Studio, este juego reta a Chilin a dominar el balón el mayor tiempo posible.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <div class="game-card h-100 js-video-card" data-video-src="./VIDEOS/ChronoSlayer.mp4" data-video-title="Chrono Slayer">
-              <div class="game-media">
-                <img src="./IMGS/ChronoSlayer.png" alt="Chrono Slayer">
-                <button class="game-play-btn" type="button" aria-label="Reproducir video de Chrono Slayer">
-                  <i class="bi bi-play-fill"></i>
-                </button>
-                <div class="game-overlay"><h6>Chrono Slayer</h6></div>
-              </div>
-              <div class="game-info">
-                <p class="game-description lang-text" data-es="Experiencia de realidad virtual en la que debes escapar de un edificio infestado de robots hostiles." data-en="A virtual reality experience in which you must escape from a building infested with hostile robots.">Experiencia de realidad virtual en la que debes escapar de un edificio infestado de robots hostiles.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="game-card h-100 js-video-card" data-video-src="./VIDEOS/TheAwakening.mp4" data-video-title="The Awakening: The Vessel">
-              <div class="game-media">
-                <img src="./IMGS/TheAwakening.png" alt="The Awakening: The Vessel">
-                <button class="game-play-btn" type="button" aria-label="Reproducir video de The Awakening: The Vessel">
-                  <i class="bi bi-play-fill"></i>
-                </button>
-                <div class="game-overlay"><h6>The Awakening: The Vessel</h6></div>
-              </div>
-              <div class="game-info">
-                <p class="game-description lang-text" data-es="Experiencia de realidad virtual presentada en La Mole, desarrollada durante mi etapa universitaria." data-en="A virtual reality experience showcased at La Mole, developed during my university years.">Experiencia de realidad virtual presentada en La Mole, desarrollada durante mi etapa universitaria.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="game-card h-100 js-video-card" data-video-src="./VIDEOS/WOTK.mp4" data-video-title="WOTK">
-              <div class="game-media">
-                <img src="./IMGS/WOTK.png" alt="WOTK">
-                <button class="game-play-btn" type="button" aria-label="Reproducir video de WOTK">
-                  <i class="bi bi-play-fill"></i>
-                </button>
-                <div class="game-overlay"><h6>WOTK</h6></div>
-              </div>
-              <div class="game-info">
-                <p class="game-description lang-text" data-es="Battle royale de magia con multijugador en LAN, enfocado en duelos dinámicos y combate competitivo." data-en="A magic battle royale with LAN multiplayer, focused on dynamic duels and competitive combat.">Battle royale de magia con multijugador en LAN, enfocado en duelos dinámicos y combate competitivo.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="game-card h-100">
-              <div class="game-media">
-                <img src="./IMGS/cargando.png" alt="Atrapa!">
-                <div class="game-overlay"><h6>Atrapa!</h6></div>
-              </div>
-              <div class="game-info">
-                <p class="game-description lang-text" data-es="Juego en desarrollo para Android y web. Lánzale un hueso a tu perro y ayúdalo a atraparlo para sumar puntos." data-en="Game in development for Android and web. Throw a bone to your dog and help it catch it to score points.">Juego en desarrollo para <strong>Android y web</strong>. Lánzale un hueso a tu perro y ayúdalo a atraparlo para sumar puntos.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-6 bg-deep">
-      <div class="container text-center">
-        <h2 class="section-title">Hardware & Arduino</h2>
-        <div class="row g-4 text-start">
-          <div class="col-md-6">
-            <div class="card project-card-modern p-4 h-100">
-              <h5 class="text-cyan">Control Cosmic X-Cape</h5>
-              <p class="text-light-gray lang-text" data-es="Periférico físico integrado con Unity mediante comunicación serial." data-en="Physical peripheral integrated with Unity through serial communication.">Periférico físico integrado con Unity mediante comunicación serial.</p>
-              <div class="mt-2 text-white-50 small">#Arduino #C++ #Unity</div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card project-card-modern p-4 h-100">
-              <h5 class="text-cyan lang-text" data-es="Vehículo Autónomo" data-en="Autonomous Vehicle">Vehículo Autónomo</h5>
-              <p class="text-light-gray lang-text" data-es="Seguidor de línea basado en sensores infrarrojos y lógica de control." data-en="Line follower based on infrared sensors and control logic.">Seguidor de línea basado en sensores infrarrojos y lógica de control.</p>
-              <div class="mt-2 text-white-50 small">#Robótica #Lógica</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN DE LLAMADO A LA ACCIÓN (CALL TO ACTION / LANDING PAGE) -->
-    <section id="contacto" class="py-6 cta-section">
-      <div class="container">
-        <div class="cta-card p-4 p-md-5 text-center">
-          <div class="cta-badge mb-3">
-            <i class="bi bi-rocket-takeoff-fill me-2"></i>
-            <span class="lang-text" data-es="¿TIENES UN PROYECTO EN MENTE?" data-en="HAVE A PROJECT IN MIND?">¿TIENES UN PROYECTO EN MENTE?</span>
-          </div>
-
-          <h2 class="section-title text-center mb-3 lang-text" 
-              data-es="¡Construyamos algo <span class='text-gradient'>increíble</span>!" 
-              data-en="Let's build something <span class='text-gradient'>incredible</span>!">
-              ¡Construyamos algo <span class="text-gradient">increíble</span>!
-          </h2>
-
-          <p class="lead text-light-gray mx-auto mb-4 cta-subtitle lang-text" 
-             data-es="¿Listo para dar el siguiente paso? Hagamos una reunión o escríbeme directamente para colaborar en desarrollo web, videojuegos o soluciones interactivas."
-             data-en="Ready to take the next step? Let's set up a meeting or drop me a direct line to collaborate on web development, video games, or interactive solutions.">
-             ¿Listo para dar el siguiente paso? Hagamos una reunión o escríbeme directamente para colaborar en desarrollo web, videojuegos o soluciones interactivas.
-          </p>
-
-          <div class="row g-3 g-lg-4 mt-3 text-start">
-            <!-- Botón WhatsApp -->
-            <div class="col-12 col-md-6">
-              <a href="https://wa.me/525550760125?text=Hola%20Jorge,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20ponerme%20en%20contacto%20contigo" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="cta-action-card cta-action-whatsapp h-100">
-                <div class="cta-action-icon"><i class="bi bi-whatsapp"></i></div>
-                <div class="cta-action-info">
-                  <span class="cta-action-label lang-text" data-es="Chatear por WhatsApp" data-en="Chat on WhatsApp">Chatear por WhatsApp</span>
-                  <span class="cta-action-val">Enviar mensaje directo</span>
-                </div>
-                <i class="bi bi-box-arrow-up-right cta-action-arrow"></i>
-              </a>
-            </div>
-
-            <!-- Botón LinkedIn -->
-            <div class="col-12 col-md-6">
-              <a href="https://www.linkedin.com/in/jorge-salas-leybon-3b514235b" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="cta-action-card cta-action-linkedin h-100">
-                <div class="cta-action-icon"><i class="bi bi-linkedin"></i></div>
-                <div class="cta-action-info">
-                  <span class="cta-action-label">LinkedIn</span>
-                  <span class="cta-action-val">Jorge Salas Leybon</span>
-                </div>
-                <i class="bi bi-box-arrow-up-right cta-action-arrow"></i>
-              </a>
-            </div>
-
-            <!-- Copiar Correo Electrónico -->
-            <div class="col-12 col-md-6">
-              <button type="button" 
-                      class="cta-action-card cta-action-copy js-copy-btn h-100" 
-                      data-copy-text="jorsalas1120@gmail.com" 
-                      data-feedback-es="¡Correo copiado!" 
-                      data-feedback-en="Email copied!" 
-                      aria-label="Copiar correo electrónico de Jorge Salas">
-                <div class="cta-action-icon"><i class="bi bi-envelope-at-fill"></i></div>
-                <div class="cta-action-info">
-                  <span class="cta-action-label lang-text" data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</span>
-                  <span class="cta-action-val">jorsalas1120@gmail.com</span>
-                </div>
-                <div class="cta-copy-indicator">
-                  <i class="bi bi-clipboard"></i>
-                  <span class="copy-status lang-text" data-es="Copiar" data-en="Copy">Copiar</span>
-                </div>
-              </button>
-            </div>
-
-            <!-- Copiar Número Celular -->
-            <div class="col-12 col-md-6">
-              <button type="button" 
-                      class="cta-action-card cta-action-copy js-copy-btn h-100" 
-                      data-copy-text="5550760125" 
-                      data-feedback-es="¡Teléfono copiado!" 
-                      data-feedback-en="Phone copied!" 
-                      aria-label="Copiar número celular de Jorge Salas">
-                <div class="cta-action-icon"><i class="bi bi-telephone-fill"></i></div>
-                <div class="cta-action-info">
-                  <span class="cta-action-label lang-text" data-es="Teléfono / Celular" data-en="Phone Number">Teléfono / Celular</span>
-                  <span class="cta-action-val">5550760125</span>
-                </div>
-                <div class="cta-copy-indicator">
-                  <i class="bi bi-clipboard"></i>
-                  <span class="copy-status lang-text" data-es="Copiar" data-en="Copy">Copiar</span>
-                </div>
-              </button>
-            </div>
-          </div>
-
-          <!-- Toast flotante de confirmación de copiado -->
-          <div id="cta-copy-toast" class="cta-toast" aria-live="polite">
-            <i class="bi bi-check-circle-fill text-cyan fs-5 me-2"></i>
-            <span class="cta-toast-message">¡Copiado al portapapeles!</span>
-          </div>
-        </div>
+    <section class="contact section-wrap" id="contacto">
+      <div class="contact-panel">
+        <div class="section-kicker"><span>04</span> <span data-en="THE NEXT STEP">EL SIGUIENTE PASO</span></div>
+        <h2 data-en-html="Let's bring your<br><span>idea to life.</span>">¿Le damos vida<br>a tu <span>idea?</span></h2>
+        <p data-en="Tell me what you have in mind. I'm just a message away.">Cuéntame qué tienes en mente. Estoy a un mensaje de distancia.</p>
+        <a class="button button-primary magnetic" href="https://wa.me/525550760125?text=Hola%20Jorge,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20ponerme%20en%20contacto%20contigo" target="_blank" rel="noopener noreferrer" data-en="Message me on WhatsApp ↗">Escríbeme por WhatsApp <span aria-hidden="true">↗</span></a>
+        <div class="contact-links"><a href="mailto:jorsalas1120@gmail.com">jorsalas1120@gmail.com</a><a href="https://www.linkedin.com/in/jorge-salas-leybon-3b514235b" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://jorsl1120.github.io/CV/" target="_blank" rel="noopener noreferrer" data-en="My CV ↗">Mi CV ↗</a></div>
       </div>
     </section>
   </main>
-
-  <footer class="py-5 bg-black border-top border-dark text-center">
-    <div class="container">
-      <img src="./IMGS/Lobo.png" class="logo-footer mb-3" alt="Logo">
-      <h5 class="fw-bold text-white">Jorge Salas</h5>
-      <p class="small text-white-50 lang-text" data-es="© 2025 | Desarrollado con Alma y Código." data-en="© 2025 | Developed with Soul and Code.">© 2025 | Desarrollado con Alma y Código.</p>
-    </div>
-  </footer>
-
-  <!-- BOTÓN FLOTANTE VOLVER ARRIBA (SCROLL TO TOP) -->
-  <a href="#inicio" id="btn-scroll-top" class="btn-scroll-top" aria-label="Volver arriba">
-    <i class="bi bi-chevron-up"></i>
-  </a>
-
-  <div id="video-popup" class="video-popup" aria-hidden="true">
-    <div class="video-popup-backdrop" data-close-video="true"></div>
-    <div class="video-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="video-popup-title">
-      <div class="video-popup-header">
-        <h5 id="video-popup-title" class="video-popup-title">Video</h5>
-        <button id="video-popup-close" class="video-popup-close" type="button" aria-label="Cerrar video">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-      <div class="video-popup-content">
-        <video id="video-popup-player" controls preload="metadata" playsinline>
-          Tu navegador no soporta la reproducción de video.
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div id="gallery-popup" class="gallery-popup" aria-hidden="true">
-    <div class="gallery-popup-backdrop" data-close-gallery="true"></div>
-    <div class="gallery-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-popup-title">
-      <div class="gallery-popup-header">
-        <h5 id="gallery-popup-title" class="gallery-popup-title">Galería</h5>
-        <button id="gallery-popup-close" class="gallery-popup-close" type="button" aria-label="Cerrar galería"><i class="bi bi-x-lg"></i></button>
-      </div>
-      <div class="gallery-popup-content">
-        <button id="gallery-popup-previous" class="gallery-control gallery-previous" type="button" aria-label="Imagen anterior"><i class="bi bi-chevron-left"></i></button>
-        <img id="gallery-popup-image" src="" alt="">
-        <button id="gallery-popup-next" class="gallery-control gallery-next" type="button" aria-label="Imagen siguiente"><i class="bi bi-chevron-right"></i></button>
-      </div>
-      <div id="gallery-popup-indicators" class="gallery-popup-indicators" aria-label="Selector de imagen"></div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="main.js"></script>
-  <script src="./assets/unity/InteractiveHeader/Build/InteractiveHeader.loader.js"></script>
-  <script>
-    var canvas = document.querySelector("#unity-canvas");
-    var config = {
-      dataUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.data.unityweb",
-      frameworkUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.framework.js.unityweb",
-      codeUrl: "assets/unity/InteractiveHeader/Build/InteractiveHeader.wasm.unityweb",
-      streamingAssetsUrl: "assets/unity/InteractiveHeader/Build/StreamingAssets",
-      companyName: "JorSalasDEV",
-      productName: "PortfolioBackground",
-      productVersion: "1.0",
-    };
-    
-    createUnityInstance(canvas, config).then((unityInstance) => {
-      console.log("Fondo interactivo cargado con éxito");
-    }).catch((message) => {
-      alert(message);
-    });
-  </script>
+  <footer class="site-footer"><a class="brand" href="#inicio"><img src="./IMGS/Lobo.png" alt="" width="28" height="28"><span>jorge<span class="brand-accent">salas</span><small>.dev</small></span></a><span>© <span id="current-year"></span> Jorge Salas. <span data-en="Made with intention.">Hecho con intención.</span></span><a href="#inicio" data-en="Back to top ↑">Volver arriba ↑</a></footer>
+  <script src="shared.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>
