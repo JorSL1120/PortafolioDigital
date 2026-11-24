@@ -134,17 +134,25 @@ button { font: inherit; }
 .site-footer .brand { color: #c6cfdb; font-size: 14px; }
 .site-footer .brand img { width: 28px; height: 28px; }
 .site-footer > a:last-child { color: #b3bdca; }
-.intro-loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: #080b13; transition: opacity .55s ease,visibility .55s ease; }
+.intro-loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; overflow: hidden; background: radial-gradient(ellipse at center,#1a1b37 0%,#080b13 65%); transition: opacity .55s ease,visibility .55s ease; }
 .intro-loader.is-hidden { opacity: 0; visibility: hidden; }
-.loader-terminal { width: min(420px,calc(100% - 40px)); padding: 18px 20px 20px; border: 1px solid #ffffff1c; border-radius: 8px; background: #0e131e; box-shadow: 0 25px 100px #0008; font: 12px "DM Mono",monospace; }
-.terminal-top { display: flex; gap: 5px; align-items: center; margin: -18px -20px 17px; padding: 11px 12px; border-bottom: 1px solid #ffffff15; }
-.terminal-top > span { width: 7px; height: 7px; border-radius: 50%; background: #ff6c69; }.terminal-top > span:nth-child(2) { background: #ffcc56; }.terminal-top > span:nth-child(3) { background: #6bd992; }
-.terminal-top small { margin-left: 8px; color: #737f91; font-size: 9px; }
-.loader-terminal p { margin: 8px 0; color: #e8ebf3; }.code-muted { color: #9e8aff; }.code-accent { color: var(--lime); }
-.loader-status { display: flex; align-items: center; gap: 8px; margin-top: 20px; color: #9da8b7; font-size: 10px; }
+.intro-loader::before,.intro-loader::after { position: absolute; width: 150%; height: 1px; content: ""; background: linear-gradient(90deg,transparent,rgba(149,116,255,.55),rgba(201,255,89,.85),transparent); box-shadow: 0 0 20px #9574ff; transform: rotate(-25deg) translateY(-45vh); animation: loader-ray 1.6s ease-in-out infinite; }
+.intro-loader::after { opacity: .45; animation-delay: -.8s; }
+.loader-content { position: relative; z-index: 1; display: flex; width: min(280px,calc(100% - 48px)); flex-direction: column; align-items: center; text-align: center; }
+.loader-emblem { position: relative; display: grid; width: min(58vw,32vh,220px); aspect-ratio: 1; place-items: center; }
+.loader-ring { position: absolute; border-radius: 50%; }
+.loader-ring-outer { inset: 0; border: 1px solid rgba(201,255,89,.16); border-top-color: var(--lime); border-right-color: rgba(201,255,89,.55); box-shadow: 0 0 30px rgba(149,116,255,.1); animation: loader-spin 2s linear infinite; }
+.loader-ring-inner { inset: 10%; border: 1px solid rgba(149,116,255,.2); border-bottom-color: var(--violet); border-left-color: rgba(149,116,255,.65); animation: loader-spin 1.5s linear infinite reverse; }
+.loader-logo { display: grid; width: 65%; aspect-ratio: 1; place-items: center; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; background: radial-gradient(circle,#26243f,#111521 72%); box-shadow: 0 0 40px rgba(149,116,255,.16); }
+.loader-logo img { width: 58%; height: 58%; object-fit: contain; }
+.loader-brand { margin-top: clamp(12px,3vh,24px); color: var(--paper); font: 700 clamp(20px,5vw,25px) "Space Grotesk",sans-serif; letter-spacing: -.05em; }
+.loader-brand span { color: var(--lime); }.loader-brand small { margin-left: 2px; color: var(--muted); font: 500 .6em "DM Sans",sans-serif; letter-spacing: 0; }
+.loader-status { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; color: #aab4c3; font-size: 11px; }
 .loader-pulse { display: inline-block; width: 6px; height: 6px; }.loader-dots { color: var(--lime); animation: blink .7s steps(2) infinite; }
-.loader-track { height: 2px; margin-top: 13px; overflow: hidden; background: #ffffff12; }.loader-track span { display: block; width: 35%; height: 100%; background: var(--lime); box-shadow: 0 0 9px var(--lime); animation: load 1.3s ease-in-out forwards; }
+.loader-track { width: min(180px,80%); height: 2px; margin-top: 16px; overflow: hidden; background: #ffffff1a; }.loader-track span { display: block; width: 35%; height: 100%; background: var(--lime); box-shadow: 0 0 9px var(--lime); animation: load 1.3s ease-in-out forwards; }
 @keyframes load { to { width: 100%; } }
+@keyframes loader-spin { to { transform: rotate(360deg); } }
+@keyframes loader-ray { from { transform: rotate(-25deg) translateY(-45vh); } to { transform: rotate(-25deg) translateY(45vh); } }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes scroll-tap { 0%,100% { opacity: .35; transform: translateY(0); } 55% { opacity: 1; transform: translateY(5px); } }
 @keyframes blink { 0%,100% { opacity: .5; } 50% { opacity: 1; } }

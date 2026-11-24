@@ -5,20 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b13">
   <meta name="description" content="Portafolio de Jorge Salas: desarrollo web, videojuegos y experiencias digitales interactivas.">
-  <title>Jorge Salas | Desarrollador creativo</title>
+  <title>Jorge Salas | Web & Game Dev</title>
   <link rel="icon" href="./IMGS/Lobo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="shared.css">
+  <noscript><style>.intro-loader { display: none; }</style></noscript>
 </head>
+
 <body>
   <div class="intro-loader" id="intro-loader" aria-hidden="true">
-    <div class="loader-terminal">
-      <div class="terminal-top"><span></span><span></span><span></span><small>jorge-salas.dev</small></div>
-      <p><span class="code-muted">const</span> portfolio = <span class="code-accent">"Jorge Salas Dev"</span>;</p>
-      <p><span class="code-muted">await</span> portfolio.<span class="code-accent">cargar</span>();</p>
+    <div class="loader-content">
+      <div class="loader-emblem">
+        <span class="loader-ring loader-ring-outer"></span>
+        <span class="loader-ring loader-ring-inner"></span>
+        <div class="loader-logo"><img src="./IMGS/Lobo.png" alt=""></div>
+      </div>
+      <div class="loader-brand">jor<span>salasdev</span><small>.com</small></div>
       <div class="loader-status"><span class="loader-pulse"></span><span id="loader-message">Preparando experiencia</span><span class="loader-dots">...</span></div>
       <div class="loader-track"><span></span></div>
     </div>
@@ -31,7 +36,7 @@
     <nav class="nav-shell" aria-label="Navegación principal" data-en-aria="Main navigation">
       <a class="brand" href="#inicio" aria-label="Jorge Salas, inicio">
         <img src="./IMGS/Lobo.png" alt="" width="34" height="34">
-        <span>jorge<span class="brand-accent">salas</span><small>.dev</small></span>
+        <span>jor<span class="brand-accent">salasdev</span><small>.com</small></span>
       </a>
       <div class="nav-utilities">
         <div class="language-switch" role="group" aria-label="Idioma / Language"><button type="button" data-language="es" aria-pressed="true">ES</button><span>/</span><button type="button" data-language="en" aria-pressed="false">EN</button></div>
@@ -53,14 +58,13 @@
     <section class="hero section-wrap" id="inicio">
       <div class="hero-copy">
         <div class="availability"><span></span> <span data-en="Available for new projects">Disponible para nuevos proyectos</span></div>
-        <p class="eyebrow" data-en="WEB & GAME DEVELOPER">DESARROLLADOR WEB & GAME DEVELOPER</p>
+        <p class="eyebrow" data-en="WEB & GAME DEVELOPER">WEB & GAME DEVELOPER</p>
         <h1><span data-en="Hi, I'm">Hola, soy</span><br><span class="hero-name">Jorge Salas</span><span class="hero-period">.</span></h1>
-        <p class="hero-lede" data-en="I design and build digital experiences that feel as good as they work.">Diseño y construyo experiencias digitales que se sienten tan bien como funcionan.</p>
+        <p class="hero-lede" data-en="I design and build games that captivate and websites that stand out.">Diseño y construyo juegos que atrapan y webs que resaltan.</p>
         <div class="hero-actions">
           <a class="button button-primary magnetic" href="#proyectos" data-en="Explore projects ↓">Explorar proyectos <span aria-hidden="true">↓</span></a>
           <a class="button button-quiet" href="#contacto" data-en="Let's talk ↗">Conversemos <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-footnote"><span class="footnote-line"></span> <span data-en="Based in Mexico">Basado en México</span> <span class="footnote-dot">·</span> <span data-en="Building digital experiences for people">Trabajando en digital, pensando en las personas</span></div>
       </div>
       <div class="hero-visual" aria-label="Retrato de Jorge Salas" data-en-aria="Portrait of Jorge Salas">
         <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
@@ -71,7 +75,6 @@
         <div class="floating-note note-top"><span class="note-icon">&lt;/&gt;</span><span>IDEAS<br><strong data-en="in motion">en movimiento</strong></span></div>
         <div class="floating-note note-bottom"><span class="note-spark">✳</span><span><span data-en="Creativity">Creatividad</span><br><strong data-en="with purpose">con propósito</strong></span></div>
       </div>
-      <a class="scroll-cue" href="#sobre-mi"><span></span> <span data-en="Scroll to get to know me">Desliza para conocerme</span></a>
     </section>
 
     <section class="about section-wrap" id="sobre-mi">
@@ -79,7 +82,8 @@
       <div class="about-grid">
         <h2 data-en-html="Between code<br>and <span>imagination.</span>">Entre el código<br>y la <span>imaginación.</span></h2>
         <div class="about-copy">
-          <p data-en="I'm Jorge, a developer focused on creating clear, engaging and easy-to-use digital products. I combine the attention to detail of the web with the creativity and logic I learned making games.">Soy Jorge, desarrollador enfocado en crear productos digitales claros, atractivos y fáciles de usar. Combino el cuidado por los detalles de la web con la creatividad y la lógica que aprendí haciendo videojuegos.</p>
+          <p data-en="I'm Jorge Salas, a developer focused on building fast, intuitive and well-structured digital products. I transfer the visual precision and performance of the web to the design of systems and mechanics in video games—and vice versa. I turn ideas into functional experiences: from web platforms ready to scale to interactive worlds designed to explore.">Soy Jorge Salas, desarrollador enfocado en construir productos digitales rápidos, intuitivos y bien estructurados. Traslado la precisión visual y de rendimiento de la web al diseño de sistemas y mecánicas en videojuegos —y viceversa.
+Transformo ideas en experiencias funcionales: desde plataformas web listas para escalar hasta mundos interactivos diseñados para explorarse.</p>
           <p data-en="I enjoy turning ideas into real experiences: from a useful platform to an interactive world that invites exploration.">Me gusta convertir ideas en experiencias reales: desde una plataforma útil hasta un mundo interactivo que invite a explorar.</p>
           <div class="skill-chips" aria-label="Tecnologías y herramientas" data-en-aria="Technologies and tools"><span>HTML / CSS / JS</span><span>WordPress</span><span>Unity</span><span>C#</span><span>Blender</span><span>SEO</span></div>
         </div>
